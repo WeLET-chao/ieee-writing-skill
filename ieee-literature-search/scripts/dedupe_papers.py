@@ -1,4 +1,4 @@
-"""Dedupe candidate papers against an existing docs/PAPERS.md index."""
+"""Dedupe candidate papers against an existing PAPERS.md index."""
 
 from __future__ import annotations
 
@@ -76,7 +76,7 @@ def is_duplicate(
 def main() -> int:
     """CLI entry point."""
     parser = argparse.ArgumentParser(description="Filter candidates not already in PAPERS.md.")
-    parser.add_argument("--index", required=True, type=Path, help="Path to docs/PAPERS.md")
+    parser.add_argument("--index", required=True, type=Path, help="Path to PAPERS.md index")
     parser.add_argument(
         "--candidates",
         required=True,
