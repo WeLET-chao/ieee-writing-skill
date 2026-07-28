@@ -44,9 +44,10 @@ Copy `ieee-literature-search/scripts/api_keys.sh.example` → `api_keys.sh` befo
 ```bash
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
+AGENT_SKILLS="${AGENT_SKILLS:-$REPO_ROOT}"
 
 # Search → append rows to PAPERS.md (example)
-SKILL="$REPO_ROOT/ieee-writing/ieee-literature-search"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-search)"
 "$SKILL/scripts/run_python.sh" "$SKILL/scripts/search_ieee.py" \
   --query '("flexible electronics" AND strain AND TFT)' \
   --start-year 2018 --max-records 20 --format markdown
@@ -65,7 +66,7 @@ bash "$SKILL/scripts/analyze_paper_batch.sh" \
   "$REPO_ROOT/paper/literature"
 
 # Corpus synthesis (after many analysis.md files exist)
-SKILL="$REPO_ROOT/ieee-writing/ieee-literature-synthesize"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-synthesize)"
 python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 ```
 

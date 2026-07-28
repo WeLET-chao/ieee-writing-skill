@@ -3,7 +3,7 @@
 | Generic skill default | This repo |
 |----------------------|-----------|
 | `docs/PAPERS.md` / `*-lab/docs/PAPERS.md` | **`paper/literature/PAPERS.md`** |
-| `~/.cursor/skills/ieee-literature-search` | **`.cursor/skills/ieee-literature-search`** |
+| `skill_root.sh` / `~/.agents/skills/` | See [PATH_MODE.md](../PATH_MODE.md) |
 | `papers/<slug>/` | **`paper/literature/<slug>/`** |
 
 API keys: copy `scripts/api_keys.sh.example` → `scripts/api_keys.sh` (not committed).

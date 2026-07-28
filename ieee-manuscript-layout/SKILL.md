@@ -86,13 +86,16 @@ Starter `reference.bib`: `ieee-manuscript-bib/templates/reference.bib`
 Initialize a new paper tree:
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/init_paper_assets.sh --bootstrap-tex
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+LAYOUT="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-layout)"
+
+bash "$LAYOUT/scripts/init_paper_assets.sh" --bootstrap-tex
 ```
 
 ## Build workflow
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/build_paper.sh
+bash "$LAYOUT/scripts/build_paper.sh"
 ```
 
 ## Output

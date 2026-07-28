@@ -3,8 +3,11 @@
 Initialize with:
 
 ```bash
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+TCAD="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-journal-tcad)"
+
 PAPER_DIR=paper \
-  .skills/ieee-manuscript-journal-tcad/scripts/init_tcad_journal.sh --bootstrap-tex
+  bash "$TCAD/scripts/init_tcad_journal.sh" --bootstrap-tex
 ```
 
 `PAPER_DIR` is the **consumer manuscript root** (any path the user chooses;
@@ -33,7 +36,7 @@ paper/                          # or paper_writing/ — set PAPER_DIR
 ├── artifacts/                  # Optional: manifest + synced experiment outputs (consumer)
 ├── writing_plan.md             # Outline (optional)
 ├── drafting_goal.md            # Optional: tracks + user decisions (consumer)
-├── SKILL_FEEDBACK.md           # Optional: lessons → .skills/ promotion (consumer)
+├── SKILL_FEEDBACK.md           # Optional: lessons → promote to skill reference.md (consumer)
 └── out/                        # Review outputs, not for submission
 ```
 
@@ -45,7 +48,7 @@ paper/                          # or paper_writing/ — set PAPER_DIR
 
 ```bash
 PAPER_DIR=paper \
-  .skills/ieee-manuscript-journal-tcad/scripts/build_tcad_journal.sh
+  bash "$TCAD/scripts/build_tcad_journal.sh"
 ```
 
 Typography and float cleanup afterward: `ieee-manuscript-layout`.

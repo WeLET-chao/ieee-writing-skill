@@ -8,7 +8,7 @@ description: >-
   reference.bib, fixing citations, or preparing submission-ready bibliographies.
 ---
 
-# IEEE Bibliography Hygiene
+# IEEE Manuscript Bibliography
 
 ## Canonical source
 
@@ -52,7 +52,9 @@ To fetch literature PDFs before verification, use **`ieee-literature-pipeline`**
 9. **Compile and inspect** — Build PDF and read the rendered reference list.
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/build_paper.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+LAYOUT="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-layout)"
+bash "$LAYOUT/scripts/build_paper.sh"
 ```
 
 ## Templates
@@ -65,7 +67,7 @@ To fetch literature PDFs before verification, use **`ieee-literature-pipeline`**
 Installed into `paper/` by:
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/init_paper_assets.sh --bootstrap-tex
+bash "$LAYOUT/scripts/init_paper_assets.sh" --bootstrap-tex
 ```
 
 When adding entries, copy field style from `entry_examples.bib`, then verify
@@ -78,7 +80,10 @@ metadata per `reference.md` §2.
 | `scripts/list_cited_keys.py` | List `\cite{}` keys; `--bib` checks missing entries |
 
 ```bash
-python3 .cursor/skills/ieee-manuscript-bib/scripts/list_cited_keys.py \
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+BIB="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-bib)"
+
+python3 "$BIB/scripts/list_cited_keys.py" \
   --bib paper/reference.bib
 ```
 

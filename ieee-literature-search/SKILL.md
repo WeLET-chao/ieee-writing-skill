@@ -1,28 +1,31 @@
 ---
 name: ieee-literature-search
 description: >-
-  Search IEEE Xplore for papers on a topic, dedupe against docs/PAPERS.md,
-  and append index rows with DOI / Xplore links for manual PDF download.
-  Use when the user asks to find IEEE papers, build a reading list, search
-  Xplore for device/modeling/EDA topics, or populate PAPERS.md before analysis.
+  Search IEEE Xplore for papers on a topic, dedupe against paper/literature/PAPERS.md,
+  and append index rows with DOI / Xplore links for PDF download. Use when the user
+  asks to find IEEE papers, build a reading list, search Xplore for device/modeling/EDA
+  topics, or populate PAPERS.md before analysis.
 ---
 
-# IEEE Xplore Paper Search
+# IEEE Literature Search
 
-> **This repo:** read [PROJECT.md](PROJECT.md) — index at `paper/literature/PAPERS.md`.
+> **This repo:** read [PROJECT.md](PROJECT.md) — index at `paper/literature/PAPERS.md`.  
+> **Paths:** [PATH_MODE.md](../PATH_MODE.md).
 
-Discover papers on IEEE Xplore and append rows to `docs/PAPERS.md` (legacy *-lab layout) or **`paper/literature/PAPERS.md`** in this repo. **Do not paywall-bypass.** When PDFs are unavailable, link **DOI** and **IEEE Xplore** so the downloader or the user can fetch them through the environment's existing IEEE access.
+Discover papers on IEEE Xplore and append rows to **`paper/literature/PAPERS.md`** (this repo) or legacy `docs/PAPERS.md` layouts. **Do not paywall-bypass.** When PDFs are unavailable, link **DOI** and **IEEE Xplore** so `paper-pdf-fetch` or the user can fetch them through the environment's IEEE access.
 
 Downstream flow:
 
 1. Search and append pending rows with this skill
-2. Download PDFs with [paper-pdf-fetch](../../paper-pdf-fetch/SKILL.md)
-3. Analyze papers with [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) after `paper.pdf` exists
+2. Download PDFs with **`paper-pdf-fetch`** (agent-skills: `paper-pdf-fetch/`)
+3. Analyze papers with **`analyze-research-paper`** (`paper-pipeline/`) after `paper.pdf` exists
 
 ## Prerequisites
 
 ```bash
-bash ~/.cursor/skills/ieee-literature-search/scripts/setup.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-search)"
+bash "$SKILL/scripts/setup.sh"
 ```
 
 Optional but recommended — IEEE Xplore Metadata API key (free registration):
@@ -66,7 +69,8 @@ Translate user intent into:
 **Preferred (API):**
 
 ```bash
-SKILL=~/.cursor/skills/ieee-literature-search
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-search)"
 source "$SKILL/scripts/env.sh"   # loads IEEE_XPLORE_API_KEY if set
 
 "$SKILL/scripts/run_python.sh" "$SKILL/scripts/search_ieee.py" \
@@ -128,7 +132,7 @@ Rules:
 
 - Sort by **year descending** (newest first).
 - Insert new rows **above** the `<!-- Add new rows` comment.
-- **Analysis:** `—` until [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) completes.
+- **Analysis:** `—` until **`analyze-research-paper`** completes.
 - **PDF:** `[IEEE Xplore](url)` or `[doi](https://doi.org/...)` when no `papers/<slug>/paper.pdf`.
 - After the user downloads PDF → save as `papers/<slug>/paper.pdf` → run analyze skill → replace `—` with analysis/pdf links.
 
@@ -159,7 +163,7 @@ If API metadata marks `is_open_access: true`, try:
   --article-number 9123456 --out "$REPO/papers/$SLUG/paper.pdf"
 ```
 
-If download fails or paper is not open access, **stop** and leave DOI/Xplore links for [paper-pdf-fetch](../../paper-pdf-fetch/SKILL.md) or manual fetch. Never scrape paywalled PDFs.
+If download fails or paper is not open access, **stop** and leave DOI/Xplore links for **`paper-pdf-fetch`** or manual fetch. Never scrape paywalled PDFs.
 
 ## Handoff to analysis
 

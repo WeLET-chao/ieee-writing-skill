@@ -1,5 +1,5 @@
 {
   "profile_id": "ieee-tcad-journal",
   "schema_version": "2",
-  "notes": "Pointer only. Full contract: .skills/ieee-venue-profiles/profiles/<profile_id>.json"
+  "notes": "Pointer only. Full contract: ieee-venue-profiles/profiles/<profile_id>.json (see ieee-venue-profiles skill)"
 }

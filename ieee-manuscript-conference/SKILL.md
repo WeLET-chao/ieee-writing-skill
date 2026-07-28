@@ -22,10 +22,8 @@ This skill is the **conference counterpart** to `ieee-manuscript-journal-tcad`.
 ## Bootstrap
 
 ```bash
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-# agent-skills canonical:
-LAYOUT="$REPO_ROOT/ieee-writing/ieee-manuscript-layout"
-# symlink mode: LAYOUT="$HOME/.agents/skills/ieee-manuscript-layout"
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+LAYOUT="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-layout)"
 
 bash "$LAYOUT/scripts/init_paper_assets.sh" --bootstrap-tex
 ```

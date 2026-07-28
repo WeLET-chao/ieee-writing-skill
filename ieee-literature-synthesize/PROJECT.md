@@ -4,7 +4,8 @@ Run corpus extraction on analyzed digests under **`paper/literature/`**:
 
 ```bash
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-SKILL="$REPO_ROOT/.cursor/skills/ieee-literature-synthesize"
+AGENT_SKILLS="${AGENT_SKILLS:-$REPO_ROOT}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-synthesize)"
 python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 python3 "$SKILL/scripts/aggregate_corpus.py" "$REPO_ROOT/paper/literature/_corpus/extracted.json"
 ```

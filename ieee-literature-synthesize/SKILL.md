@@ -8,7 +8,7 @@ description: >-
   or comparing prior art across many analyzed papers.
 ---
 
-# Synthesize Paper Corpus
+# IEEE Literature Synthesize
 
 > **This repo:** read [PROJECT.md](PROJECT.md) — corpus root `paper/literature/`.
 
@@ -20,8 +20,11 @@ Turn many structured digests into one research landscape report.
 
 ## Quick start
 
+Paths: [PATH_MODE.md](../PATH_MODE.md).
+
 ```bash
-SKILL=~/.cursor/skills/ieee-literature-synthesize
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-synthesize)"
 REPO=/path/to/repo
 
 python3 "$SKILL/scripts/extract_corpus.py" "$REPO"

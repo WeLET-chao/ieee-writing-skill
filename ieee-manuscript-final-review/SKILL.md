@@ -31,7 +31,10 @@ pass. Topic-agnostic.
 ### 1. Compile
 
 ```bash
-.cursor/skills/ieee-manuscript-final-review/scripts/build_and_review.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+REVIEW="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-final-review)"
+
+bash "$REVIEW/scripts/build_and_review.sh"
 ```
 
 Or separately: `ieee-manuscript-layout/scripts/build_paper.sh` then
@@ -44,7 +47,7 @@ Treat LaTeX exit status as necessary but not sufficient.
 Rasterize pages for inspection:
 
 ```bash
-.cursor/skills/ieee-manuscript-final-review/scripts/render_pdf_pages.sh
+bash "$REVIEW/scripts/render_pdf_pages.sh"
 ```
 
 Check:
@@ -76,8 +79,7 @@ Mark pass/fail; failed items become P0 or P1.
 ### 5. Optional external visual QA
 
 If the user has Gemini CLI and wants deeper figure/layout critique, they may
-run a manual visual review workflow. Archived adder-specific automation lives
-at `.cursor/skills/_archive/adder-design/pdf-visual-qa-gemini/`.
+run a manual visual review workflow outside this skill group.
 
 ## Output artifact
 

@@ -57,7 +57,8 @@ When `ieee-venue-profiles` resolves to **`ieee-conference-short`** (or similar s
 
 ```bash
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-SKILL="$REPO_ROOT/.cursor/skills/ieee-manuscript-scoping"
+AGENT_SKILLS="${AGENT_SKILLS:-$REPO_ROOT}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-scoping)"
 python3 "$SKILL/scripts/scan_repo_for_paper.py" \
   --repo-root "$REPO_ROOT" \
   --out "$REPO_ROOT/paper/out/scoping/repo_inventory.json"

@@ -8,6 +8,8 @@ All skills in this group use the prefix **`ieee-`** and a **phase** segment.
 ieee-<phase>-<role>
 ```
 
+Resolve paths: `scripts/skill_root.sh` — see [PATH_MODE.md](PATH_MODE.md).
+
 | Phase | Prefix | Purpose |
 |-------|--------|---------|
 | Literature | `ieee-literature-*` | Search, download handoff, per-paper digests, corpus synthesis |

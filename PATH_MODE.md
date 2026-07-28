@@ -23,18 +23,23 @@ Cross-group skills (same rules):
 REPO_ROOT="$(git rev-parse --show-toplevel)"   # consumer paper repo
 AGENT_SKILLS=/path/to/agent-skills             # meta repo root when not the consumer
 
-# ieee-writing skill (pick one):
-SKILL="$AGENT_SKILLS/ieee-writing/ieee-literature-search"
-# or
-SKILL="$HOME/.agents/skills/ieee-literature-search"
-# or
-SKILL="$REPO_ROOT/.cursor/skills/ieee-literature-search"
+# Resolve any ieee-writing skill (auto-detects mode):
+ROOT="$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh"
+SKILL="$(bash "$ROOT" ieee-literature-search)"
+
+# Manual overrides:
+SKILL="$AGENT_SKILLS/ieee-writing/ieee-literature-search"   # agent-skills canonical
+SKILL="$HOME/.agents/skills/ieee-literature-search"         # symlink
+SKILL="$REPO_ROOT/.cursor/skills/ieee-literature-search"    # consumer embedded
+export SKILL_ROOT=/custom/path                              # force one skill dir
 ```
+
+Script index: [ARTIFACTS.md](ARTIFACTS.md).
 
 ## Orchestrator defaults
 
 - `ieee-literature-pipeline` — examples use **agent-skills canonical** (`ieee-writing/...`, `paper-pipeline/...`, `paper-pdf-fetch`)
-- `ieee-manuscript-revision` — examples use **consumer embedded** (`.cursor/skills/...`); override with `$SKILL` as above
+- Other skills — examples use **`scripts/skill_root.sh`** (auto-detects agent-skills, symlink, or embedded)
 
 ## Do not mix
 

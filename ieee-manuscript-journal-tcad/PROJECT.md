@@ -32,7 +32,7 @@ bash paper_writing/scripts/build_paper.sh
 When PMIC writing surfaces a reusable TCAD pattern:
 
 1. Log in `paper_writing/SKILL_FEEDBACK.md`
-2. Promote to `.skills/ieee-manuscript-journal-tcad/reference.md` or `SKILL.md`
+2. Promote to `ieee-manuscript-journal-tcad/reference.md` or `SKILL.md` in the canonical skill repo
 3. Keep hurricane paths, manifest slugs, and thesis tables in PMIC only
 
 See `paper_writing/SKILL_FEEDBACK.md` for promoted vs pending items.

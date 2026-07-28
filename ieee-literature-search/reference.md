@@ -20,8 +20,10 @@ Register: https://developer.ieee.org/getting_started
 | `scripts/ieee_api.py` | Failover: primary → backup on HTTP 403 or 429 |
 
 ```bash
-source ~/.cursor/skills/ieee-literature-search/scripts/env.sh
+source "$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-literature-search)/scripts/env.sh"
 ```
+
+(Set `AGENT_SKILLS` first — see [PATH_MODE.md](../PATH_MODE.md).)
 
 ## Comparator-focused querytext presets
 

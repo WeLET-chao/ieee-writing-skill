@@ -6,7 +6,7 @@ In [agent-skills](https://github.com/WeLET-chao/agent-skills), this group is mou
 IEEE-style manuscript workflows: literature → scoping → drafting → revision → submission.
 
 **Naming:** `ieee-literature-*`, `ieee-manuscript-*`, `ieee-venue-*` — see [NAMING.md](NAMING.md).  
-**Paths:** agent-skills vs symlink vs embedded — see [PATH_MODE.md](PATH_MODE.md).
+**Paths:** [PATH_MODE.md](PATH_MODE.md) · script index [ARTIFACTS.md](ARTIFACTS.md).
 
 ## End-to-end flow
 

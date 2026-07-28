@@ -69,7 +69,9 @@ See `../ARTIFACTS.md` for commands.
 After figure or float edits:
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/build_paper.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+LAYOUT="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-layout)"
+bash "$LAYOUT/scripts/build_paper.sh"
 ```
 
 ## Output

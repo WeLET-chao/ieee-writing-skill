@@ -42,18 +42,23 @@ drafting. This skill supplies **TeX templates and init scripts** when
 
 ## Quick start
 
+Paths: [PATH_MODE.md](../PATH_MODE.md).
+
 Initialize a TCAD journal tree:
 
 ```bash
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+TCAD="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-journal-tcad)"
+
 PAPER_DIR=paper \
-  .skills/ieee-manuscript-journal-tcad/scripts/init_tcad_journal.sh --bootstrap-tex
+  bash "$TCAD/scripts/init_tcad_journal.sh" --bootstrap-tex
 ```
 
 Build (after figures exist):
 
 ```bash
 PAPER_DIR=paper \
-  .skills/ieee-manuscript-journal-tcad/scripts/build_tcad_journal.sh
+  bash "$TCAD/scripts/build_tcad_journal.sh"
 ```
 
 `PAPER_DIR` defaults to `<repo>/paper/` when unset.

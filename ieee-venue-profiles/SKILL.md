@@ -35,10 +35,14 @@ organized by **five pillars** (not by downstream skill name):
 
 ## Quick start
 
-```bash
-.skills/ieee-venue-profiles/scripts/resolve_venue_profile.py --list
+Paths: [PATH_MODE.md](../PATH_MODE.md). Resolve skill root:
 
-.skills/ieee-venue-profiles/scripts/resolve_venue_profile.py ieee-tcad-journal
+```bash
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+VENUE="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-venue-profiles)"
+
+python3 "$VENUE/scripts/resolve_venue_profile.py" --list
+python3 "$VENUE/scripts/resolve_venue_profile.py" ieee-tcad-journal
 
 # Consumer repo pointer (any PAPER_DIR):
 # { "profile_id": "ieee-tcad-journal" }
@@ -81,8 +85,9 @@ Lessons from a host-repo manuscript → update the **profile pillar fields** (or
 Refine profiles from recent venue papers. **Discovery:** web search or Xplore browse → `calibration/PAPERS.md`. **PDFs:** `download_venue_corpus.sh` on campus. **Tune profiles:** analyze → `venue_signals.json` → `synthesize_profile_signals.py`.
 
 ```bash
-# After PAPERS.md has rows with IEEE Xplore links:
-.skills/ieee-venue-profiles/scripts/download_venue_corpus.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+VENUE="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-venue-profiles)"
+bash "$VENUE/scripts/download_venue_corpus.sh"
 ```
 
 Full workflow: [calibration/PROFILE_CALIBRATION.md](calibration/PROFILE_CALIBRATION.md)

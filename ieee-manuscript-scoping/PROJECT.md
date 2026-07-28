@@ -11,7 +11,8 @@
 
 ```bash
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-SKILL="$REPO_ROOT/.cursor/skills/ieee-manuscript-scoping"
+AGENT_SKILLS="${AGENT_SKILLS:-$REPO_ROOT}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-scoping)"
 mkdir -p "$REPO_ROOT/paper/out/scoping"
 
 python3 "$SKILL/scripts/scan_repo_for_paper.py" \
@@ -39,7 +40,9 @@ Use `--bootstrap-tex` only for a **new** manuscript; this repo already has a ful
 Recreate test sandbox:
 
 ```bash
-bash .cursor/skills/ieee-manuscript-scoping/scripts/prepare_scoping_test_repo.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+SKILL="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-scoping)"
+bash "$SKILL/scripts/prepare_scoping_test_repo.sh"
 ```
 
 Before `--refresh-plan` on the canonical repo, refresh the full `paper/` backup first.
@@ -56,8 +59,10 @@ cp ../strained-device-model-paper-backup-20260612/scripts/plot_ifetc_figures.py 
 Otherwise **create** per scoping skill §8:
 
 ```bash
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+FIGURES="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-figures)"
 mkdir -p paper/scripts
-cp .cursor/skills/ieee-manuscript-figures/templates/generate_figures.template.py \
+cp "$FIGURES/templates/generate_figures.template.py" \
    paper/scripts/plot_ifetc_figures.py
 ```
 
@@ -67,4 +72,4 @@ cp .cursor/skills/ieee-manuscript-figures/templates/generate_figures.template.py
 - Dynamic extensions: bandwidth, rate, hysteresis, profile library
 - BSIM4 reference case study; ngspice / Spectre workflow
 
-Orchestrator: `.cursor/skills/README.md` Phase B Step 0.
+Orchestrator: `ieee-manuscript-scoping/SKILL.md` (Phase B Step 0).

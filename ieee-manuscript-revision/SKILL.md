@@ -70,12 +70,17 @@ Installed into `paper/` by `ieee-manuscript-layout/scripts/init_paper_assets.sh 
 
 ## Scripts
 
-Sub-skill scripts are listed in `../ARTIFACTS.md`. Typical full pass:
+Sub-skill scripts: [ARTIFACTS.md](../ARTIFACTS.md). Typical full pass:
 
 ```bash
-.cursor/skills/ieee-manuscript-layout/scripts/init_paper_assets.sh
+AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
+ROOT="$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh"
+LAYOUT="$(bash "$ROOT" ieee-manuscript-layout)"
+REVIEW="$(bash "$ROOT" ieee-manuscript-final-review)"
+
+bash "$LAYOUT/scripts/init_paper_assets.sh"
 # edit prose / figures / bib per sub-skills
-.cursor/skills/ieee-manuscript-final-review/scripts/build_and_review.sh
+bash "$REVIEW/scripts/build_and_review.sh"
 ```
 
 ## Default behavior
