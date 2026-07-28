@@ -1,11 +1,6 @@
 ---
 name: ieee-manuscript-final-review
-description: >-
-  Runs pre-submission final review for IEEE manuscripts on circuit, device,
-  modeling, EDA, and measurement topics: compile PDF, visual page inspection,
-  final checklist, unresolved references, and P0/P1 blocker summary. Use when
-  asking if a paper is submission-ready or before uploading to a conference
-  portal.
+description: "Runs pre-submission final review for IEEE manuscripts on circuit, device, modeling, EDA, and measurement topics: compile PDF, visual page inspection, final checklist, unresolved references, and P0/P1 blocker summary. Use when asking if a paper is submission-ready or before uploading to a conference portal."
 ---
 
 # IEEE Manuscript Final Review

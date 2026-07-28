@@ -1,10 +1,6 @@
 ---
 name: ieee-manuscript-revision
-description: >-
-  Orchestrates end-to-end IEEE manuscript revision for circuit, device,
-  modeling, EDA, and measurement papers using ieee-manuscript-prose, figures,
-  bib, layout, and final-review skills. Use when the user asks for a full paper
-  polish, pre-submission revision pass, or IEEE guidelines review on paper/*.tex.
+description: "Orchestrates end-to-end IEEE manuscript revision for circuit, device, modeling, EDA, and measurement papers using ieee-manuscript-prose, figures, bib, layout, and final-review skills. Use when the user asks for a full paper polish, pre-submission revision pass, or IEEE guidelines review on paper/*.tex."
 ---
 
 # IEEE Manuscript Revision (Orchestrator)

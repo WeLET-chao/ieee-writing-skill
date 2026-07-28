@@ -1,11 +1,6 @@
 ---
 name: ieee-manuscript-figures
-description: >-
-  Revises IEEE manuscript figures and captions for circuit, device, modeling,
-  EDA, and measurement papers: claim-aligned plot types, axis/legend hygiene,
-  caption takeaways, final figure paths under paper/figures/, and results
-  discussion linked to plots. Use when editing figure scripts, regenerating
-  plots, writing captions, or fixing figure-to-text mismatches.
+description: "Revises IEEE manuscript figures and captions for circuit, device, modeling, EDA, and measurement papers: claim-aligned plot types, axis/legend hygiene, caption takeaways, final figure paths under paper/figures/, and results discussion linked to plots. Use when editing figure scripts, regenerating plots, writing captions, or fixing figure-to-text mismatches."
 ---
 
 # IEEE Manuscript Figures and Captions

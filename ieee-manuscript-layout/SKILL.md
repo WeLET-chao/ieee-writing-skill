@@ -1,11 +1,6 @@
 ---
 name: ieee-manuscript-layout
-description: >-
-  Fixes IEEE LaTeX typography, float placement, and page-limit layout for
-  circuit, device, modeling, EDA, and measurement manuscripts: number-unit
-  spacing, ranges, textcomp micro-units, semicolon/dash hygiene, float
-  specifiers, and ordered page-reduction steps. Use when the PDF is over page
-  limit, has float holes, or needs IEEEtran typesetting cleanup.
+description: "Fixes IEEE LaTeX typography, float placement, and page-limit layout for circuit, device, modeling, EDA, and measurement manuscripts: number-unit spacing, ranges, textcomp micro-units, semicolon/dash hygiene, float specifiers, and ordered page-reduction steps. Use when the PDF is over page limit, has float holes, or needs IEEEtran typesetting cleanup."
 ---
 
 # IEEE LaTeX Layout and Typography

@@ -1,11 +1,6 @@
 ---
 name: ieee-literature-synthesize
-description: >-
-  Aggregates structured paper digests (e.g. papers/*/analysis.md) into a
-  corpus-level synthesis: problem themes, research directions, opportunities,
-  and prior-art maps by category. Domain-agnostic via JSON profiles. Use when
-  summarizing a paper library, building a research roadmap, identifying gaps,
-  or comparing prior art across many analyzed papers.
+description: "Aggregates structured paper digests (e.g. papers/*/analysis.md) into a corpus-level synthesis: problem themes, research directions, opportunities, and prior-art maps by category. Domain-agnostic via JSON profiles. Use when summarizing a paper library, building a research roadmap, identifying gaps, or comparing prior art across many analyzed papers."
 ---
 
 # IEEE Literature Synthesize

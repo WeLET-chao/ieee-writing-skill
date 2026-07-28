@@ -1,10 +1,6 @@
 ---
 name: ieee-manuscript-conference
-description: >-
-  Bootstraps short IEEE conference manuscripts (~2 pages): monolithic main.tex,
-  figure/table budget, and init via ieee-manuscript-layout. Use when
-  ieee-venue-profiles resolves to ieee-conference-short or the user targets
-  IFETC-style two-page conference papers.
+description: "Bootstraps short IEEE conference manuscripts (~2 pages): monolithic main.tex, figure/table budget, and init via ieee-manuscript-layout. Use when ieee-venue-profiles resolves to ieee-conference-short or the user targets IFETC-style two-page conference papers."
 ---
 
 # IEEE Conference Short Manuscript

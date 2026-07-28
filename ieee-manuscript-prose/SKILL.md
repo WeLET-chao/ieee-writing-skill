@@ -1,12 +1,6 @@
 ---
 name: ieee-manuscript-prose
-description: >-
-  Applies IEEE short-paper prose revision rules for circuit, device, modeling,
-  EDA, and measurement manuscripts: claim scope, problem-mechanism-evidence
-  chain, abstract/intro/conclusion alignment, objective methodology wording,
-  semicolon avoidance, causal phrasing, and results tone. Use when polishing
-  IEEE LaTeX text, revising abstract/introduction/conclusion, or improving
-  figure-discussion paragraphs in paper/*.tex.
+description: "Applies IEEE short-paper prose revision rules for circuit, device, modeling, EDA, and measurement manuscripts: claim scope, problem-mechanism-evidence chain, abstract/intro/conclusion alignment, objective methodology wording, semicolon avoidance, causal phrasing, and results tone. Use when polishing IEEE LaTeX text, revising abstract/introduction/conclusion, or improving figure-discussion paragraphs in paper/*.tex."
 ---
 
 # IEEE Manuscript Prose Revision

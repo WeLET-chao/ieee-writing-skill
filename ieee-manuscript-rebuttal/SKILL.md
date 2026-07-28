@@ -1,10 +1,6 @@
 ---
 name: ieee-manuscript-rebuttal
-description: >-
-  Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter,
-  change log mapped to TeX diffs, and optional revision pass hooks. Use when the
-  user receives reviewer comments and needs a response letter or revision plan
-  before resubmitting.
+description: "Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter, change log mapped to TeX diffs, and optional revision pass hooks. Use when the user receives reviewer comments and needs a response letter or revision plan before resubmitting."
 ---
 
 # IEEE Manuscript Rebuttal

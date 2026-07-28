@@ -1,11 +1,6 @@
 ---
 name: ieee-literature-pipeline
-description: >-
-  Orchestrates IEEE literature search, PDF download, per-paper analysis, and
-  optional corpus synthesis for this repository. Uses paper/literature/PAPERS.md
-  and integrates with ieee-manuscript-bib and ieee-manuscript-prose. Use when
-  building a reading list, downloading Xplore PDFs, analyzing prior art, or
-  synthesizing related-work themes before writing the manuscript.
+description: "Orchestrates IEEE literature search, PDF download, per-paper analysis, and optional corpus synthesis for this repository. Uses paper/literature/PAPERS.md and integrates with ieee-manuscript-bib and ieee-manuscript-prose. Use when building a reading list, downloading Xplore PDFs, analyzing prior art, or synthesizing related-work themes before writing the manuscript."
 ---
 
 # IEEE Literature Pipeline (this repo)

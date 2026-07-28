@@ -1,11 +1,6 @@
 ---
 name: ieee-manuscript-bib
-description: >-
-  Verifies and cleans IEEE bibliography entries for circuit, device, modeling,
-  EDA, and measurement papers: DOI/Crossref/PDF metadata checks, conference
-  booktitle acronyms, optional journal abbreviation for layout,
-  author/year/page consistency, and duplicate key removal. Use when editing
-  reference.bib, fixing citations, or preparing submission-ready bibliographies.
+description: "Verifies and cleans IEEE bibliography entries for circuit, device, modeling, EDA, and measurement papers: DOI/Crossref/PDF metadata checks, conference booktitle acronyms, optional journal abbreviation for layout, author/year/page consistency, and duplicate key removal. Use when editing reference.bib, fixing citations, or preparing submission-ready bibliographies."
 ---
 
 # IEEE Manuscript Bibliography

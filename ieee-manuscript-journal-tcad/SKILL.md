@@ -1,12 +1,6 @@
 ---
 name: ieee-manuscript-journal-tcad
-description: >-
-  Bootstraps and drafts IEEE TCAD-style journal manuscripts for CAD/EDA papers:
-  journal IEEEtran split TeX, figure/table conventions, section narrative
-  rhythm, BibTeX, and paper/ folder layout. Use when targeting IEEE TCAD,
-  migrating from IEEE conference to journal format, or structuring
-  simulation-in-the-loop / design-automation journal papers (not short conference
-  drafts). Independent of any specific consumer repo folder.
+description: "Bootstraps and drafts IEEE TCAD-style journal manuscripts for CAD/EDA papers: journal IEEEtran split TeX, figure/table conventions, section narrative rhythm, BibTeX, and paper/ folder layout. Use when targeting IEEE TCAD, migrating from IEEE conference to journal format, or structuring simulation-in-the-loop / design-automation journal papers (not short conference drafts). Independent of any specific consumer repo folder."
 ---
 
 # IEEE TCAD Journal Manuscript

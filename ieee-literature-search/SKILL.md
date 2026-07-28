@@ -1,10 +1,6 @@
 ---
 name: ieee-literature-search
-description: >-
-  Search IEEE Xplore for papers on a topic, dedupe against paper/literature/PAPERS.md,
-  and append index rows with DOI / Xplore links for PDF download. Use when the user
-  asks to find IEEE papers, build a reading list, search Xplore for device/modeling/EDA
-  topics, or populate PAPERS.md before analysis.
+description: "Search IEEE Xplore for papers on a topic, dedupe against paper/literature/PAPERS.md, and append index rows with DOI / Xplore links for PDF download. Use when the user asks to find IEEE papers, build a reading list, search Xplore for device/modeling/EDA topics, or populate PAPERS.md before analysis."
 ---
 
 # IEEE Literature Search

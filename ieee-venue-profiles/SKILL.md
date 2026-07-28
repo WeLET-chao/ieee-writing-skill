@@ -1,11 +1,6 @@
 ---
 name: ieee-venue-profiles
-description: >-
-  Resolves venue-specific manuscript contracts for IEEE conferences and journals
-  across five pillars: LaTeX template, figures/layout, structure/narrative, BibTeX,
-  and project layout. Loads JSON profiles (TCAD, short conference, TCAS-I). Use when
-  the target venue changes or before scoping, drafting, or revision — not only for
-  per-skill layout tweaks.
+description: "Resolves venue-specific manuscript contracts for IEEE conferences and journals across five pillars: LaTeX template, figures/layout, structure/narrative, BibTeX, and project layout. Loads JSON profiles (TCAD, short conference, TCAS-I). Use when the target venue changes or before scoping, drafting, or revision — not only for per-skill layout tweaks."
 ---
 
 # IEEE Venue Profiles
