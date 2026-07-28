@@ -26,13 +26,26 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 PAPERS_MD="$REPO_ROOT/paper/literature/PAPERS.md"
 ```
 
+## Path mode (important)
+
+This skill supports three installation modes. Pick one and keep paths consistent:
+
+1. **agent-skills canonical (recommended in this repo)**  
+   `REPO_ROOT/ieee-writing/...` and `REPO_ROOT/paper-pipeline/...`
+2. **`~/.agents/skills` symlink mode**  
+   `~/.agents/skills/<skill-name>/...`
+3. **Consumer repo embedded mode**  
+   `REPO_ROOT/.cursor/skills/<skill-name>/...`
+
+All command examples below use **agent-skills canonical** paths.
+
 ## Sub-skills
 
 | Step | Skill | Setup |
 |------|-------|-------|
-| 1 Search | `ieee-xplore-paper-search` | `bash .cursor/skills/ieee-xplore-paper-search/scripts/setup.sh` |
+| 1 Search | `ieee-xplore-paper-search` | `bash "$REPO_ROOT/ieee-writing/ieee-xplore-paper-search/scripts/setup.sh"` |
 | 2 Download | `paper-pdf-fetch` | `bash paper-acquisition/paper-pdf-fetch/scripts/setup.sh` |
-| 3 Analyze | `analyze-research-paper` | `bash .cursor/skills/analyze-research-paper/scripts/setup.sh` |
+| 3 Analyze | `analyze-research-paper` | `bash "$REPO_ROOT/paper-pipeline/analyze-research-paper/scripts/setup.sh"` |
 | 4 Synthesize | `synthesize-paper-corpus` | (uses repo `_corpus/`; no venv required for extract) |
 
 Copy `ieee-xplore-paper-search/scripts/api_keys.sh.example` → `api_keys.sh` before search.
@@ -44,7 +57,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
 # Search → append rows to PAPERS.md (example)
-SKILL=.cursor/skills/ieee-xplore-paper-search
+SKILL="$REPO_ROOT/ieee-writing/ieee-xplore-paper-search"
 "$SKILL/scripts/run_python.sh" "$SKILL/scripts/search_ieee.py" \
   --query '("flexible electronics" AND strain AND TFT)' \
   --start-year 2018 --max-records 20 --format markdown
@@ -57,13 +70,13 @@ python3 "$SKILL/scripts/fetch_from_papers_md.py" \
   --resume
 
 # Analyze one PDF
-SKILL=.cursor/skills/analyze-research-paper
+SKILL="$REPO_ROOT/paper-pipeline/analyze-research-paper"
 bash "$SKILL/scripts/analyze_paper_batch.sh" \
   "$REPO_ROOT/paper/literature/<slug>/paper.pdf" \
   "$REPO_ROOT/paper/literature"
 
 # Corpus synthesis (after many analysis.md files exist)
-SKILL=.cursor/skills/synthesize-paper-corpus
+SKILL="$REPO_ROOT/ieee-writing/synthesize-paper-corpus"
 python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 ```
 
@@ -76,5 +89,5 @@ python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 ## Notes
 
 - Step 2 default is **`paper-pdf-fetch`** (`paper-acquisition` group, `scihub_enabled=true`). Use legacy `ieee-xplore-paper-pdf-downloader` only when institutional/Xplore-only access is required.
-- Skills are **copied into this repo** under `.cursor/skills/` (portable; no `_vendor` symlinks).
+- In this repository, canonical paths are `ieee-writing/` and `paper-pipeline/` under repo root.
 - Each skill's `scripts/setup.sh` creates a local `.venv` inside that skill folder (gitignored).

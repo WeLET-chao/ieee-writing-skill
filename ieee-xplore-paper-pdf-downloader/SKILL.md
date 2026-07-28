@@ -14,7 +14,7 @@ description: >-
 
 Download IEEE Xplore PDFs in bulk for literature-review repos. This skill assumes the user's runtime environment already has working IEEE Xplore access. If access fails, report the failed papers and stop; do not attempt workarounds.
 
-Primary workflow: `*-lab/docs/PAPERS.md` -> staged PDFs -> optional `--apply` into `papers/` -> handoff to [analyze-research-paper](../analyze-research-paper/SKILL.md).
+Primary workflow: `*-lab/docs/PAPERS.md` -> staged PDFs -> optional `--apply` into `papers/` -> handoff to [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md).
 
 ## Prerequisites
 
@@ -190,13 +190,13 @@ Verify a PDF tree:
 
 ## Handoff to analysis
 
-After PDFs land under `*-lab/papers/`, run [analyze-research-paper](../analyze-research-paper/SKILL.md) on the downloaded PDFs.
+After PDFs land under `*-lab/papers/`, run [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) on the downloaded PDFs.
 
 Typical sequence:
 
 1. Search and append pending rows with [ieee-xplore-paper-search](../ieee-xplore-paper-search/SKILL.md)
 2. Download PDFs with this skill (batched `/loop` for full corpora)
-3. Generate `analysis.md` with [analyze-research-paper](../analyze-research-paper/SKILL.md)
+3. Generate `analysis.md` with [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md)
 
 ## Additional resources
 

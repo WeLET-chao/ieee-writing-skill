@@ -17,7 +17,7 @@ Downstream flow:
 
 1. Search and append pending rows with this skill
 2. Download PDFs with [ieee-xplore-paper-pdf-downloader](../ieee-xplore-paper-pdf-downloader/SKILL.md)
-3. Analyze papers with [analyze-research-paper](../analyze-research-paper/SKILL.md) after `paper.pdf` exists
+3. Analyze papers with [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) after `paper.pdf` exists
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ Rules:
 
 - Sort by **year descending** (newest first).
 - Insert new rows **above** the `<!-- Add new rows` comment.
-- **Analysis:** `—` until [analyze-research-paper](../analyze-research-paper/SKILL.md) completes.
+- **Analysis:** `—` until [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) completes.
 - **PDF:** `[IEEE Xplore](url)` or `[doi](https://doi.org/...)` when no `papers/<slug>/paper.pdf`.
 - After the user downloads PDF → save as `papers/<slug>/paper.pdf` → run analyze skill → replace `—` with analysis/pdf links.
 
@@ -166,7 +166,8 @@ If download fails or paper is not open access, **stop** and leave DOI/Xplore lin
 When the user adds `papers/<slug>/paper.pdf` or the PDF downloader skill applies it:
 
 ```bash
-SKILL=~/.cursor/skills/analyze-research-paper
+REPO=/path/to/agent-skills
+SKILL="$REPO/paper-pipeline/analyze-research-paper"
 bash "$SKILL/scripts/analyze_paper_batch.sh" \
   /path/to/repo/papers/slug/paper.pdf /path/to/repo/papers
 ```
