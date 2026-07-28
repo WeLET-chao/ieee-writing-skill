@@ -19,10 +19,10 @@ projects—they only appear below for migration lookup.
 | Figures | `ieee-manuscript-figures` | §1 |
 | Tables | `ieee-manuscript-figures` | §2 |
 | Captions | `ieee-manuscript-figures` | §3 |
-| Bibliography hygiene | `ieee-bib-hygiene` | §1–§8 |
-| LaTeX typography | `ieee-latex-layout` | §1 |
-| Float and layout | `ieee-latex-layout` | §2 |
-| Build commands | `ieee-latex-layout` | §3 |
+| Bibliography hygiene | `ieee-manuscript-bib` | §1–§8 |
+| LaTeX typography | `ieee-manuscript-layout` | §1 |
+| Float and layout | `ieee-manuscript-layout` | §2 |
+| Build commands | `ieee-manuscript-layout` | §3 |
 | Visual PDF review | `ieee-manuscript-final-review` | §1 |
 | Final checklist | `ieee-manuscript-final-review` | §2 |
 
@@ -32,7 +32,7 @@ When one skill points to another, use the **skill path + local section**, for
 example:
 
 - `ieee-manuscript-prose/reference.md` §4.1 (not “guidelines §4.1”)
-- `ieee-bib-hygiene/reference.md` §7 (not “guidelines §7.6”)
+- `ieee-manuscript-bib/reference.md` §7 (not “guidelines §7.6”)
 
 ## Legacy monolith map (deprecated)
 
@@ -42,8 +42,8 @@ For repos that still mention the old single-file numbering:
 |----------|-----|
 | 1–4, 11 | `ieee-manuscript-prose/reference.md` §1–§5 |
 | 5, 6, 10 | `ieee-manuscript-figures/reference.md` §1–§3 |
-| 7 | `ieee-bib-hygiene/reference.md` §1–§8 |
-| 8, 9 | `ieee-latex-layout/reference.md` §1–§2 |
+| 7 | `ieee-manuscript-bib/reference.md` §1–§8 |
+| 8, 9 | `ieee-manuscript-layout/reference.md` §1–§2 |
 | 12, 13 | `ieee-manuscript-final-review/reference.md` §1–§2 |
 
 Root `IEEE_MANUSCRIPT_REVISION_GUIDELINES.md` is a pointer only, not the

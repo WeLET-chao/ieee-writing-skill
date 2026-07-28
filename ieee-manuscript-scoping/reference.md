@@ -62,7 +62,7 @@ Minimum headings in `paper/writing_plan.md`:
 
 Generated TeX includes:
 
-- Preamble from `ieee-latex-layout/templates/main.tex` (subset)
+- Preamble from `ieee-manuscript-layout/templates/main.tex` (subset)
 - `\title`, `\author` placeholders
 - `\begin{abstract}` / `IEEEkeywords` comment stubs
 - One `\section{}` per `sections[]` in decisions

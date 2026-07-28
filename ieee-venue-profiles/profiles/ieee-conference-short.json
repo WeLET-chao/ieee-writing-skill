@@ -9,7 +9,7 @@
     "main_tex": "main.tex",
     "section_inputs": [],
     "monolithic": true,
-    "template_skill": "ieee-latex-layout",
+    "template_skill": "ieee-manuscript-layout",
     "front_matter": {
       "markboth": { "required": false },
       "ieee_pubid": false,
@@ -173,11 +173,11 @@
     ],
     "optional_paths": ["scripts/", "literature/", "references/", "out/"],
     "init": {
-      "script": "ieee-latex-layout/scripts/init_paper_assets.sh",
+      "script": "ieee-manuscript-layout/scripts/init_paper_assets.sh",
       "bootstrap_flag": "--bootstrap-tex"
     },
     "build": {
-      "script": "ieee-latex-layout/scripts/build_paper.sh",
+      "script": "ieee-manuscript-layout/scripts/build_paper.sh",
       "main_tex": "main.tex"
     },
     "scoping_outputs": ["writing_plan.md", "figure_asset_plan.json"],
@@ -195,10 +195,10 @@
   ],
 
   "execution_skills": {
-    "latex_template": ["ieee-latex-layout"],
-    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "latex_template": ["ieee-manuscript-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-manuscript-layout"],
     "structure_and_narrative": ["ieee-manuscript-prose"],
-    "bibliography": ["ieee-bib-hygiene"],
-    "project_layout": ["ieee-manuscript-scoping", "ieee-latex-layout"]
+    "bibliography": ["ieee-manuscript-bib"],
+    "project_layout": ["ieee-manuscript-scoping", "ieee-manuscript-conference", "ieee-manuscript-layout"]
   }
 }

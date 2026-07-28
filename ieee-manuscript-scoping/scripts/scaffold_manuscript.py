@@ -172,8 +172,8 @@ def _render_writing_plan(decisions: dict[str, Any]) -> str:
             "",
             "- [ ] `ieee-manuscript-figures` — plot scripts + paper/figures/ (figure_asset_plan.json)",
             "- [ ] `ieee-manuscript-prose` — fill TeX `% SCOPE:` stubs",
-            "- [ ] `ieee-bib-hygiene` — verify `\\cite{}` keys",
-            "- [ ] `ieee-latex-layout` — compile",
+            "- [ ] `ieee-manuscript-bib` — verify `\\cite{}` keys",
+            "- [ ] `ieee-manuscript-layout` — compile",
             "- [ ] `ieee-manuscript-revision` — full polish",
             "",
         ]

@@ -15,7 +15,7 @@ CALIBRATION_DIR = SKILL_DIR / "calibration"
 TARGETS_PATH = CALIBRATION_DIR / "venue_targets.json"
 PAPERS_MD = CALIBRATION_DIR / "PAPERS.md"
 CORPUS_DIR = CALIBRATION_DIR / "_corpus"
-SEARCH_SKILL = SKILL_DIR.parent / "ieee-xplore-paper-search"
+SEARCH_SKILL = SKILL_DIR.parent / "ieee-literature-search"
 SEARCH_SCRIPT = SEARCH_SKILL / "scripts" / "search_ieee.py"
 RUN_PYTHON = SEARCH_SKILL / "scripts" / "run_python.sh"
 

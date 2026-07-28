@@ -14,7 +14,7 @@
       "4_results_v1.tex",
       "5_conclusion_v1.tex"
     ],
-    "template_skill": "ieee-tcad-journal-manuscript",
+    "template_skill": "ieee-manuscript-journal-tcad",
     "front_matter": {
       "markboth": {
         "required": true,
@@ -230,11 +230,11 @@
     ],
     "optional_paths": ["photos/", "literature/", "references/", "writing_plan.md", "out/"],
     "init": {
-      "script": "ieee-tcad-journal-manuscript/scripts/init_tcad_journal.sh",
+      "script": "ieee-manuscript-journal-tcad/scripts/init_tcad_journal.sh",
       "bootstrap_flag": "--bootstrap-tex"
     },
     "build": {
-      "script": "ieee-tcad-journal-manuscript/scripts/build_tcad_journal.sh",
+      "script": "ieee-manuscript-journal-tcad/scripts/build_tcad_journal.sh",
       "main_tex": "0_main_ieee_trans.tex"
     },
     "scoping_outputs": ["writing_plan.md", "figure_asset_plan.json"]
@@ -250,10 +250,10 @@
   ],
 
   "execution_skills": {
-    "latex_template": ["ieee-tcad-journal-manuscript", "ieee-latex-layout"],
-    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "latex_template": ["ieee-manuscript-journal-tcad", "ieee-manuscript-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-manuscript-layout"],
     "structure_and_narrative": ["ieee-manuscript-prose"],
-    "bibliography": ["ieee-bib-hygiene"],
+    "bibliography": ["ieee-manuscript-bib"],
     "project_layout": ["ieee-manuscript-scoping"]
   }
 }

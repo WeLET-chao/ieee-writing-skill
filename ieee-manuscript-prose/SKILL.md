@@ -90,7 +90,7 @@ Recommended:
 - Keep notation, equation labels, and `\cite{}` keys stable unless fixing errors.
 - Prefer minimal diffs: tighten sentences before deleting whole paragraphs.
 - Do not remove technical content solely for length; defer page cuts to
-  `ieee-latex-layout`.
+  `ieee-manuscript-layout`.
 
 ## Output
 
@@ -104,7 +104,7 @@ Return a short summary:
 - [claim still weak / needs figure or experiment]
 
 ## Suggested next skill
-- ieee-manuscript-figures | ieee-bib-hygiene | ieee-latex-layout
+- ieee-manuscript-figures | ieee-manuscript-bib | ieee-manuscript-layout
 ```
 
 ## Quick guardrails

@@ -13,7 +13,7 @@ DPI="${DPI:-180}"
 
 if [[ ! -f "${PDF_PATH}" ]]; then
   echo "Missing PDF: ${PDF_PATH}" >&2
-  echo "Run ieee-latex-layout/scripts/build_paper.sh first." >&2
+  echo "Run ieee-manuscript-layout/scripts/build_paper.sh first." >&2
   exit 1
 fi
 

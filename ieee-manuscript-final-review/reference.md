@@ -67,7 +67,7 @@ have poor layout.
       wording.
 - [ ] Titles, authors, pages, volume, issue, year, and DOI match official records.
 - [ ] Journal names are consistent (full titles **or** abbreviations per
-      `ieee-bib-hygiene/reference.md` §7); abbreviation is optional layout only.
+      `ieee-manuscript-bib/reference.md` §7); abbreviation is optional layout only.
 - [ ] Duplicate BibTeX keys for the same paper are absent or fully synchronized.
 - [ ] No repository-local paths remain in manuscript prose.
 - [ ] Number-unit, range, percentage, and notation formatting are consistent.

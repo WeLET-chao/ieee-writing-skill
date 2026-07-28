@@ -23,7 +23,7 @@ organized by **five pillars** (not by downstream skill name):
 | 4 | `bibliography` | bib files, BST control, citation density, trim policy |
 | 5 | `project_layout` | PAPER_DIR tree, init/build scripts, scoping artifacts |
 
-**Base skills** (`ieee-latex-layout`, `ieee-manuscript-prose`, …) implement mechanics.
+**Base skills** (`ieee-manuscript-layout`, `ieee-manuscript-prose`, …) implement mechanics.
 **Profiles** state what this venue requires in each pillar.
 `execution_skills` at the bottom of each profile only says *which skill to run* — it is not the primary schema.
 
@@ -66,11 +66,11 @@ Copy `profiles/_template.json` for new venues.
 
 | Pillar | Typical skills |
 |--------|----------------|
-| LaTeX template | `ieee-tcad-journal-manuscript` or `ieee-latex-layout` |
-| Figures and layout | `ieee-manuscript-figures`, `ieee-latex-layout` |
-| Structure and narrative | `ieee-tcad-journal-manuscript`, `ieee-manuscript-prose` |
-| BibTeX | `ieee-bib-hygiene` |
-| Project layout | `ieee-tcad-journal-manuscript`, `ieee-manuscript-scoping` |
+| LaTeX template | `ieee-manuscript-journal-tcad` or `ieee-manuscript-layout` |
+| Figures and layout | `ieee-manuscript-figures`, `ieee-manuscript-layout` |
+| Structure and narrative | `ieee-manuscript-journal-tcad`, `ieee-manuscript-prose` |
+| BibTeX | `ieee-manuscript-bib` |
+| Project layout | `ieee-manuscript-journal-tcad`, `ieee-manuscript-scoping` |
 
 ## Maintenance
 

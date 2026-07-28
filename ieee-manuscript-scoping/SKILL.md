@@ -22,9 +22,17 @@ Do **not** skip user confirmation when narrative choices are ambiguous (see §Ch
 When `ieee-venue-profiles` resolves to **`ieee-tcad-journal`**:
 
 - Set `main_tex` to **`0_main_ieee_trans.tex`** (not `main.tex`)
-- Defer split section files to **`ieee-tcad-journal-manuscript`** (`init_tcad_journal.sh`)
+- Defer split section files to **`ieee-manuscript-journal-tcad`** (`init_tcad_journal.sh`)
 - Record **narrative axis and evidence boundaries** in `writing_plan.md` (from scoping checkpoints — project-specific)
-- Page targets: first draft **~8**, typical TCAD **10–12** (see `ieee-tcad-journal-manuscript` reference §2)
+- Page targets: first draft **~8**, typical TCAD **10–12** (see `ieee-manuscript-journal-tcad` reference §2)
+
+## Conference short-paper branch
+
+When `ieee-venue-profiles` resolves to **`ieee-conference-short`** (or similar short conference profile):
+
+- Bootstrap TeX via **`ieee-manuscript-conference`** → `ieee-manuscript-layout/scripts/init_paper_assets.sh --bootstrap-tex`
+- Keep `main.tex` monolith; page budget from venue profile
+- Defer layout trim to `ieee-manuscript-layout` after prose/figures stabilize
 
 ## Prerequisites
 
@@ -135,7 +143,7 @@ After figure paths are resolved:
 |------|-------|------|
 | **Figures & plots** | `ieee-manuscript-figures` | **Always** after scoping when any asset is `needs_run` or `needs_design` |
 | Draft section prose | `ieee-manuscript-prose` |
-| Bootstrap layout only | `ieee-latex-layout` (`init_paper_assets.sh`) |
+| Bootstrap layout only | `ieee-manuscript-layout` (`init_paper_assets.sh`) |
 | Full polish | `ieee-manuscript-revision` |
 
 ## Source types (`figure_asset_plan.json`)

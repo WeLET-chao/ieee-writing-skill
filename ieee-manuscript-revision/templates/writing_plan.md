@@ -36,6 +36,6 @@ Outline for IEEE short-paper revision. Update as the manuscript evolves.
 
 - [ ] `ieee-manuscript-prose`
 - [ ] `ieee-manuscript-figures`
-- [ ] `ieee-bib-hygiene`
-- [ ] `ieee-latex-layout`
+- [ ] `ieee-manuscript-bib`
+- [ ] `ieee-manuscript-layout`
 - [ ] `ieee-manuscript-final-review`

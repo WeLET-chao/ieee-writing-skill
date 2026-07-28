@@ -39,8 +39,8 @@ for slug in "$PAPER/literature"/*/; do
 done
 
 SKILL_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-if [[ -f "$SKILL_ROOT/../ieee-bib-hygiene/templates/reference.bib" ]]; then
-  cp "$SKILL_ROOT/../ieee-bib-hygiene/templates/reference.bib" "$PAPER/reference.bib"
+if [[ -f "$SKILL_ROOT/../ieee-manuscript-bib/templates/reference.bib" ]]; then
+  cp "$SKILL_ROOT/../ieee-manuscript-bib/templates/reference.bib" "$PAPER/reference.bib"
 fi
 
 echo "Scoping test repo ready: $DEST"

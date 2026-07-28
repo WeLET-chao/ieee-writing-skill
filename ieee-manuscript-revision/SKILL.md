@@ -3,9 +3,8 @@ name: ieee-manuscript-revision
 description: >-
   Orchestrates end-to-end IEEE manuscript revision for circuit, device,
   modeling, EDA, and measurement papers using ieee-manuscript-prose, figures,
-  bib-hygiene, latex-layout, and final-review skills. Use when the user asks
-  for a full paper polish, pre-submission revision pass, or IEEE guidelines
-  review on paper/*.tex.
+  bib, layout, and final-review skills. Use when the user asks for a full paper
+  polish, pre-submission revision pass, or IEEE guidelines review on paper/*.tex.
 ---
 
 # IEEE Manuscript Revision (Orchestrator)
@@ -39,8 +38,8 @@ Optional:
 |-------|-------|-------|----------|
 | 1 | Prose and claims | `ieee-manuscript-prose/reference.md` | `ieee-manuscript-prose/SKILL.md` |
 | 2 | Figures and captions | `ieee-manuscript-figures/reference.md` | `ieee-manuscript-figures/SKILL.md` |
-| 3 | Bibliography | `ieee-bib-hygiene/reference.md` | `ieee-bib-hygiene/SKILL.md` |
-| 4 | Layout and compile | `ieee-latex-layout/reference.md` | `ieee-latex-layout/SKILL.md` |
+| 3 | Bibliography | `ieee-manuscript-bib/reference.md` | `ieee-manuscript-bib/SKILL.md` |
+| 4 | Layout and compile | `ieee-manuscript-layout/reference.md` | `ieee-manuscript-layout/SKILL.md` |
 | 5 | Final gate | `ieee-manuscript-final-review/reference.md` | `ieee-manuscript-final-review/SKILL.md` |
 
 ## Execution contract
@@ -50,11 +49,13 @@ Run stages **in order**. After each stage, note residual issues before continuin
 1. **Prose** — Claim map, abstract/intro/conclusion alignment (`ieee-manuscript-prose`).
 2. **Figures** — Regenerate if needed; fix captions and results linkage.
 3. **Bibliography** — Verify cited entries; conference `booktitle` acronyms;
-   journal abbreviations only if chosen for layout (`ieee-bib-hygiene` §7).
+   journal abbreviations only if chosen for layout (`ieee-manuscript-bib` §7).
 4. **Layout** — Typography, floats, page-limit fixes; compile.
 5. **Final review** — Visual PDF pass + checklist (`ieee-manuscript-final-review` §2).
 
 If the user requests **review-only**, stop after stage 5 without further edits.
+
+**After reviews:** use `ieee-manuscript-rebuttal` for the response letter (orthogonal to the polish pass above).
 
 If a stage finds P0 blockers, fix them before downstream stages when feasible
 (e.g., wrong figure undermines prose in stage 1).
@@ -65,14 +66,14 @@ If a stage finds P0 blockers, fix them before downstream stages when feasible
 |------|---------|
 | `templates/writing_plan.md` | Section/figure revision outline |
 
-Installed into `paper/` by `ieee-latex-layout/scripts/init_paper_assets.sh --bootstrap-tex`.
+Installed into `paper/` by `ieee-manuscript-layout/scripts/init_paper_assets.sh --bootstrap-tex`.
 
 ## Scripts
 
 Sub-skill scripts are listed in `../ARTIFACTS.md`. Typical full pass:
 
 ```bash
-.cursor/skills/ieee-latex-layout/scripts/init_paper_assets.sh
+.cursor/skills/ieee-manuscript-layout/scripts/init_paper_assets.sh
 # edit prose / figures / bib per sub-skills
 .cursor/skills/ieee-manuscript-final-review/scripts/build_and_review.sh
 ```
@@ -93,4 +94,4 @@ Sub-skill scripts are listed in `../ARTIFACTS.md`. Typical full pass:
 
 - `@ieee-manuscript-revision` polish the IFETC draft
 - `@ieee-manuscript-prose` only tighten Sec. III
-- `@ieee-bib-hygiene` verify all cited entries
+- `@ieee-manuscript-bib` verify all cited entries

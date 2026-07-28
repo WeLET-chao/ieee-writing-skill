@@ -73,7 +73,7 @@ widths, media (vector vs matplotlib), table roles, and page strategy.
 | `writing_rhythm` | sentence-per-line comments, headline_metric_in, narrative_focus |
 | `notes` | |
 
-**Writing rhythm** lives here — not in `ieee-latex-layout`.
+**Writing rhythm** lives here — not in `ieee-manuscript-layout`.
 
 ## 5. Pillar 4 — `bibliography`
 
@@ -115,7 +115,7 @@ invoke skills second.
 
 1. Copy `profiles/_template.json`
 2. Fill **all five pillars** — do not only set page_limit and min_figures
-3. If `latex_template` or `structure_and_narrative` needs new TeX skeleton → extend `ieee-tcad-journal-manuscript` templates or add a new structure skill
+3. If `latex_template` or `structure_and_narrative` needs new TeX skeleton → extend `ieee-manuscript-journal-tcad` templates or add a new structure skill
 4. Validate: `resolve_venue_profile.py <id>`
 
 ## 10. Relationship to structure skills
@@ -123,7 +123,7 @@ invoke skills second.
 | Artifact | Role |
 |----------|------|
 | **Venue profile** | What this journal requires (5 pillars) |
-| **Structure skill** (e.g. `ieee-tcad-journal-manuscript`) | Reusable TeX templates + init scripts when split journal skeleton is shared |
+| **Structure skill** (e.g. `ieee-manuscript-journal-tcad`) | Reusable TeX templates + init scripts when split journal skeleton is shared |
 | **Base skills** | Timeless rules; apply with profile context |
 
 TCAD and TCAS-I may share the same structure skill but differ in pillars 2–3.

@@ -3,7 +3,7 @@ name: ieee-literature-pipeline
 description: >-
   Orchestrates IEEE literature search, PDF download, per-paper analysis, and
   optional corpus synthesis for this repository. Uses paper/literature/PAPERS.md
-  and integrates with ieee-bib-hygiene and ieee-manuscript-prose. Use when
+  and integrates with ieee-manuscript-bib and ieee-manuscript-prose. Use when
   building a reading list, downloading Xplore PDFs, analyzing prior art, or
   synthesizing related-work themes before writing the manuscript.
 ---
@@ -26,29 +26,18 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 PAPERS_MD="$REPO_ROOT/paper/literature/PAPERS.md"
 ```
 
-## Path mode (important)
-
-This skill supports three installation modes. Pick one and keep paths consistent:
-
-1. **agent-skills canonical (recommended in this repo)**  
-   `REPO_ROOT/ieee-writing/...` and `REPO_ROOT/paper-pipeline/...`
-2. **`~/.agents/skills` symlink mode**  
-   `~/.agents/skills/<skill-name>/...`
-3. **Consumer repo embedded mode**  
-   `REPO_ROOT/.cursor/skills/<skill-name>/...`
-
-All command examples below use **agent-skills canonical** paths.
+See [PATH_MODE.md](../PATH_MODE.md) for symlink and consumer-embedded paths.
 
 ## Sub-skills
 
 | Step | Skill | Setup |
 |------|-------|-------|
-| 1 Search | `ieee-xplore-paper-search` | `bash "$REPO_ROOT/ieee-writing/ieee-xplore-paper-search/scripts/setup.sh"` |
+| 1 Search | `ieee-literature-search` | `bash "$REPO_ROOT/ieee-writing/ieee-literature-search/scripts/setup.sh"` |
 | 2 Download | `paper-pdf-fetch` (unified: IEEE → Sci-Hub → scansci) | `bash paper-pdf-fetch/scripts/setup.sh` |
 | 3 Analyze | `analyze-research-paper` | `bash "$REPO_ROOT/paper-pipeline/analyze-research-paper/scripts/setup.sh"` |
-| 4 Synthesize | `synthesize-paper-corpus` | (uses repo `_corpus/`; no venv required for extract) |
+| 4 Synthesize | `ieee-literature-synthesize` | (uses repo `_corpus/`; no venv required for extract) |
 
-Copy `ieee-xplore-paper-search/scripts/api_keys.sh.example` → `api_keys.sh` before search.
+Copy `ieee-literature-search/scripts/api_keys.sh.example` → `api_keys.sh` before search.
 
 ## Typical commands
 
@@ -57,7 +46,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
 # Search → append rows to PAPERS.md (example)
-SKILL="$REPO_ROOT/ieee-writing/ieee-xplore-paper-search"
+SKILL="$REPO_ROOT/ieee-writing/ieee-literature-search"
 "$SKILL/scripts/run_python.sh" "$SKILL/scripts/search_ieee.py" \
   --query '("flexible electronics" AND strain AND TFT)' \
   --start-year 2018 --max-records 20 --format markdown
@@ -76,13 +65,13 @@ bash "$SKILL/scripts/analyze_paper_batch.sh" \
   "$REPO_ROOT/paper/literature"
 
 # Corpus synthesis (after many analysis.md files exist)
-SKILL="$REPO_ROOT/ieee-writing/synthesize-paper-corpus"
+SKILL="$REPO_ROOT/ieee-writing/ieee-literature-synthesize"
 python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 ```
 
 ## Handoff to manuscript skills
 
-- New citations → add verified entries to `paper/reference.bib` (`ieee-bib-hygiene`)
+- New citations → add verified entries to `paper/reference.bib` (`ieee-manuscript-bib`)
 - Intro / related work → `ieee-manuscript-prose`
 - Figures from analyzed papers → do not `\includegraphics` vendor extracts; regenerate for claims
 

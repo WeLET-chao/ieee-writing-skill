@@ -69,7 +69,7 @@ See `../ARTIFACTS.md` for commands.
 After figure or float edits:
 
 ```bash
-.cursor/skills/ieee-latex-layout/scripts/build_paper.sh
+.cursor/skills/ieee-manuscript-layout/scripts/build_paper.sh
 ```
 
 ## Output
@@ -85,5 +85,5 @@ After figure or float edits:
 - [readability / scaling / missing unit]
 
 ## Suggested next skill
-- ieee-latex-layout | ieee-manuscript-final-review
+- ieee-manuscript-layout | ieee-manuscript-final-review
 ```

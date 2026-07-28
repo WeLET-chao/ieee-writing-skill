@@ -34,7 +34,7 @@ pass. Topic-agnostic.
 .cursor/skills/ieee-manuscript-final-review/scripts/build_and_review.sh
 ```
 
-Or separately: `ieee-latex-layout/scripts/build_paper.sh` then
+Or separately: `ieee-manuscript-layout/scripts/build_paper.sh` then
 `ieee-manuscript-final-review/scripts/render_pdf_pages.sh`.
 
 Treat LaTeX exit status as necessary but not sufficient.
@@ -70,8 +70,8 @@ Mark pass/fail; failed items become P0 or P1.
 |--------------|-------|
 | Claim scope, prose tone | `ieee-manuscript-prose` |
 | Caption, plot, figure path | `ieee-manuscript-figures` |
-| Bib metadata | `ieee-bib-hygiene` |
-| Float holes, units, page count | `ieee-latex-layout` |
+| Bib metadata | `ieee-manuscript-bib` |
+| Float holes, units, page count | `ieee-manuscript-layout` |
 
 ### 5. Optional external visual QA
 

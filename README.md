@@ -3,87 +3,97 @@
 Canonical repository: [WeLET-chao/ieee-writing-skill](https://github.com/WeLET-chao/ieee-writing-skill).  
 In [agent-skills](https://github.com/WeLET-chao/agent-skills), this group is mounted as the `ieee-writing/` git submodule.
 
-This group supports IEEE-style manuscript workflows from literature discovery to draft generation, revision, and submission readiness checks.
+IEEE-style manuscript workflows: literature → scoping → drafting → revision → submission.
 
-## Table of contents
+**Naming:** `ieee-literature-*`, `ieee-manuscript-*`, `ieee-venue-*` — see [NAMING.md](NAMING.md).  
+**Paths:** agent-skills vs symlink vs embedded — see [PATH_MODE.md](PATH_MODE.md).
 
-- [Workflow phases](#workflow-phases)
-- [Skill map](#skill-map)
-- [Quick start](#quick-start)
-- [Environment setup](#environment-setup)
-- [Working assumptions](#working-assumptions)
+## End-to-end flow
 
-## Workflow phases
+```text
+┌─ Literature (Phase A) ─────────────────────────────────────────────┐
+│ ieee-literature-pipeline                                           │
+│   → ieee-literature-search → paper-pdf-fetch → analyze-research  │
+│   → (optional) ieee-literature-synthesize                          │
+└────────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─ Drafting (Phase B) ─────────────────────────────────────────────┐
+│ ieee-venue-profiles                                                │
+│   → ieee-manuscript-scoping                                        │
+│   → ieee-manuscript-journal-tcad  OR  ieee-manuscript-conference   │
+│   → ieee-manuscript-prose / figures / layout / bib                 │
+└────────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─ Revision (Phase C) ──────────────────────────────────────────────┐
+│ ieee-manuscript-revision → final-review                            │
+│ ieee-manuscript-rebuttal (after reviews)                           │
+└────────────────────────────────────────────────────────────────────┘
+```
 
-1. Literature collection and digesting
-2. Manuscript scoping and drafting
-3. Iterative revision and final review
+External skills: `paper-pdf-fetch`, `analyze-research-paper` (see PATH_MODE.md).
 
 ## Skill map
 
-### Literature phase
+### Literature (`ieee-literature-*`)
 
-- `ieee-literature-pipeline` (orchestrator)
-- `ieee-xplore-paper-search`
-- `paper-pdf-fetch` (submodule in agent-skills)
-- `analyze-research-paper` (from `paper-pipeline`)
-- `synthesize-paper-corpus` (optional)
+| Skill | Role |
+|-------|------|
+| `ieee-literature-pipeline` | Orchestrator |
+| `ieee-literature-search` | Xplore search → PAPERS.md |
+| `ieee-literature-synthesize` | Corpus-level synthesis (optional) |
 
-### Drafting and structure phase
+### Manuscript (`ieee-manuscript-*`)
 
-- `ieee-venue-profiles`
-- `ieee-manuscript-scoping`
-- `ieee-tcad-journal-manuscript` (journal path)
-- `ieee-manuscript-prose`
-- `ieee-manuscript-figures`
-- `ieee-latex-layout`
-- `ieee-bib-hygiene`
+| Skill | Role |
+|-------|------|
+| `ieee-manuscript-scoping` | Writing plan + figure plan + scaffold |
+| `ieee-manuscript-journal-tcad` | TCAD journal TeX bootstrap |
+| `ieee-manuscript-conference` | Short conference TeX bootstrap |
+| `ieee-manuscript-prose` | Prose and claims |
+| `ieee-manuscript-figures` | Figures and captions |
+| `ieee-manuscript-layout` | Layout, compile, page trim |
+| `ieee-manuscript-bib` | Bibliography hygiene |
+| `ieee-manuscript-revision` | Full revision orchestrator |
+| `ieee-manuscript-final-review` | Pre-submission gate |
+| `ieee-manuscript-rebuttal` | Reviewer response letter |
 
-### Revision phase
+### Venue (`ieee-venue-*`)
 
-- `ieee-manuscript-revision` (orchestrator)
-- `ieee-manuscript-final-review`
+| Skill | Role |
+|-------|------|
+| `ieee-venue-profiles` | Venue JSON profiles + calibration |
 
 ## Quick start
 
-For literature-oriented workflows, start from the orchestrator:
+Literature:
 
 ```bash
-# Skill is consumed by the agent through ~/.agents/skills
-# Primary entrypoint for end-to-end literature flow:
 ieee-literature-pipeline
 ```
 
-For drafting, set venue constraints first:
+New manuscript:
 
 ```bash
-ieee-venue-profiles
-ieee-manuscript-scoping
+ieee-venue-profiles → ieee-manuscript-scoping → ieee-manuscript-conference  # or journal-tcad
+```
+
+Revision:
+
+```bash
+ieee-manuscript-revision
 ```
 
 ## Environment setup
 
-Most skills in this group are markdown and shell workflows and do **not** ship a Python venv.
-
-Skills that need a local `.venv` (gitignored; not in the repo):
-
 | Skill | Setup |
 |-------|--------|
-| `ieee-xplore-paper-search` | `bash scripts/setup.sh` |
+| `ieee-literature-search` | `bash scripts/setup.sh` |
+| `paper-pdf-fetch` | `bash paper-pdf-fetch/scripts/setup.sh` (agent-skills root) |
+| `analyze-research-paper` | see `paper-pipeline` README |
 
-PDF download uses [paper-pdf-fetch](../paper-pdf-fetch/SKILL.md) (`bash paper-pdf-fetch/scripts/setup.sh` from agent-skills root).
-
-Literature analysis depends on [paper-pipeline `analyze-research-paper`](../paper-pipeline/README.md#environment-setup); set up that skill's venv separately.
-
-`setup.sh` uses `python3 -m venv` + `pip`. To use uv instead:
-
-```bash
-SKILL=/path/to/agent-skills/ieee-writing/ieee-xplore-paper-search
-uv venv --python 3.10 "$SKILL/.venv"
-uv pip install --python "$SKILL/.venv/bin/python" requests bibtexparser
-```
+Most other skills are markdown/shell workflows without a shared venv.
 
 ## Working assumptions
 
-- Most skills assume a `paper/` workspace layout and IEEE-focused conventions.
-- Run `ieee-venue-profiles` early so downstream prose, figure, and layout skills receive the same venue constraints.
+- Default workspace: `paper/` layout under a consumer git repo.
+- Run `ieee-venue-profiles` early so downstream skills share venue constraints.
