@@ -1,5 +1,8 @@
 # ieee-writing skills
 
+Canonical repository: [WeLET-chao/ieee-writing-skill](https://github.com/WeLET-chao/ieee-writing-skill).  
+In [agent-skills](https://github.com/WeLET-chao/agent-skills), this group is mounted as the `ieee-writing/` git submodule.
+
 This group supports IEEE-style manuscript workflows from literature discovery to draft generation, revision, and submission readiness checks.
 
 ## Table of contents
