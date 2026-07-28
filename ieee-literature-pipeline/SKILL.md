@@ -44,7 +44,7 @@ All command examples below use **agent-skills canonical** paths.
 | Step | Skill | Setup |
 |------|-------|-------|
 | 1 Search | `ieee-xplore-paper-search` | `bash "$REPO_ROOT/ieee-writing/ieee-xplore-paper-search/scripts/setup.sh"` |
-| 2 Download | `paper-pdf-fetch` | `bash paper-acquisition/paper-pdf-fetch/scripts/setup.sh` |
+| 2 Download | `paper-pdf-fetch` (unified: IEEE → Sci-Hub → scansci) | `bash paper-acquisition/paper-pdf-fetch/scripts/setup.sh` |
 | 3 Analyze | `analyze-research-paper` | `bash "$REPO_ROOT/paper-pipeline/analyze-research-paper/scripts/setup.sh"` |
 | 4 Synthesize | `synthesize-paper-corpus` | (uses repo `_corpus/`; no venv required for extract) |
 
@@ -88,6 +88,6 @@ python3 "$SKILL/scripts/extract_corpus.py" "$REPO_ROOT/paper/literature"
 
 ## Notes
 
-- Step 2 default is **`paper-pdf-fetch`** (`paper-acquisition` group, `scihub_enabled=true`). Use legacy `ieee-xplore-paper-pdf-downloader` only when institutional/Xplore-only access is required.
+- Step 2 uses **`paper-pdf-fetch`** — single skill with auto-cascade backends and CSV/JSON/PAPERS.md inputs.
 - In this repository, canonical paths are `ieee-writing/` and `paper-pipeline/` under repo root.
 - Each skill's `scripts/setup.sh` creates a local `.venv` inside that skill folder (gitignored).

@@ -1,4 +1,0 @@
-interface:
-  display_name: "IEEE CSV PDF Downloader"
-  short_description: "Download IEEE PDFs from export CSV files"
-  default_prompt: "Use $ieee-csv-paper-pdf-downloader to download and validate PDFs from an IEEE Xplore export CSV."

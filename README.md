@@ -25,8 +25,7 @@ This group supports IEEE-style manuscript workflows from literature discovery to
 
 - `ieee-literature-pipeline` (orchestrator)
 - `ieee-xplore-paper-search`
-- `ieee-xplore-paper-pdf-downloader`
-- `ieee-csv-paper-pdf-downloader`
+- `paper-pdf-fetch` (from `paper-acquisition` in agent-skills)
 - `analyze-research-paper` (from `paper-pipeline`)
 - `synthesize-paper-corpus` (optional)
 
@@ -71,8 +70,8 @@ Skills that need a local `.venv` (gitignored; not in the repo):
 | Skill | Setup |
 |-------|--------|
 | `ieee-xplore-paper-search` | `bash scripts/setup.sh` |
-| `ieee-xplore-paper-pdf-downloader` | `bash scripts/setup.sh` |
-| `ieee-csv-paper-pdf-downloader` | `bash scripts/setup.sh` |
+
+PDF download uses [paper-pdf-fetch](../paper-acquisition/paper-pdf-fetch/SKILL.md) in the parent agent-skills repo (`bash paper-acquisition/paper-pdf-fetch/scripts/setup.sh`).
 
 Literature analysis depends on [paper-pipeline `analyze-research-paper`](../paper-pipeline/README.md#environment-setup); set up that skill's venv separately.
 

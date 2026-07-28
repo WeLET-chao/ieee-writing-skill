@@ -8,8 +8,8 @@ Empirically refine `profiles/*.json` using recent representative papers per venu
 # Search skill (optional — only for API/BibTeX batch paths)
 bash PMIC/.skills/ieee-xplore-paper-search/scripts/setup.sh
 
-# Downloader skill
-bash PMIC/.skills/ieee-xplore-paper-pdf-downloader/scripts/setup.sh
+# Downloader (paper-pdf-fetch in agent-skills)
+bash /path/to/agent-skills/paper-acquisition/paper-pdf-fetch/scripts/setup.sh
 
 # Analyze skill
 bash PMIC/.skills/analyze-research-paper/scripts/setup.sh
