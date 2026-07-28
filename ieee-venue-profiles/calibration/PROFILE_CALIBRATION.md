@@ -9,7 +9,7 @@ Empirically refine `profiles/*.json` using recent representative papers per venu
 bash PMIC/.skills/ieee-xplore-paper-search/scripts/setup.sh
 
 # Downloader (paper-pdf-fetch in agent-skills)
-bash /path/to/agent-skills/paper-acquisition/paper-pdf-fetch/scripts/setup.sh
+bash /path/to/agent-skills/paper-pdf-fetch/scripts/setup.sh
 
 # Analyze skill
 bash PMIC/.skills/analyze-research-paper/scripts/setup.sh

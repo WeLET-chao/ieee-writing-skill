@@ -44,7 +44,7 @@ All command examples below use **agent-skills canonical** paths.
 | Step | Skill | Setup |
 |------|-------|-------|
 | 1 Search | `ieee-xplore-paper-search` | `bash "$REPO_ROOT/ieee-writing/ieee-xplore-paper-search/scripts/setup.sh"` |
-| 2 Download | `paper-pdf-fetch` (unified: IEEE → Sci-Hub → scansci) | `bash paper-acquisition/paper-pdf-fetch/scripts/setup.sh` |
+| 2 Download | `paper-pdf-fetch` (unified: IEEE → Sci-Hub → scansci) | `bash paper-pdf-fetch/scripts/setup.sh` |
 | 3 Analyze | `analyze-research-paper` | `bash "$REPO_ROOT/paper-pipeline/analyze-research-paper/scripts/setup.sh"` |
 | 4 Synthesize | `synthesize-paper-corpus` | (uses repo `_corpus/`; no venv required for extract) |
 
@@ -63,7 +63,7 @@ SKILL="$REPO_ROOT/ieee-writing/ieee-xplore-paper-search"
   --start-year 2018 --max-records 20 --format markdown
 
 # Download pending PDFs into paper/literature/<slug>/
-SKILL=paper-acquisition/paper-pdf-fetch
+SKILL=paper-pdf-fetch
 python3 "$SKILL/scripts/fetch_from_papers_md.py" \
   --repo-root "$REPO_ROOT" \
   --papers-md "$REPO_ROOT/paper/literature/PAPERS.md" \

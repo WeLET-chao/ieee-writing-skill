@@ -16,7 +16,7 @@ Discover papers on IEEE Xplore and append rows to `docs/PAPERS.md` (legacy *-lab
 Downstream flow:
 
 1. Search and append pending rows with this skill
-2. Download PDFs with [paper-pdf-fetch](../../paper-acquisition/paper-pdf-fetch/SKILL.md)
+2. Download PDFs with [paper-pdf-fetch](../../paper-pdf-fetch/SKILL.md)
 3. Analyze papers with [analyze-research-paper](../../paper-pipeline/analyze-research-paper/SKILL.md) after `paper.pdf` exists
 
 ## Prerequisites
@@ -159,7 +159,7 @@ If API metadata marks `is_open_access: true`, try:
   --article-number 9123456 --out "$REPO/papers/$SLUG/paper.pdf"
 ```
 
-If download fails or paper is not open access, **stop** and leave DOI/Xplore links for [paper-pdf-fetch](../../paper-acquisition/paper-pdf-fetch/SKILL.md) or manual fetch. Never scrape paywalled PDFs.
+If download fails or paper is not open access, **stop** and leave DOI/Xplore links for [paper-pdf-fetch](../../paper-pdf-fetch/SKILL.md) or manual fetch. Never scrape paywalled PDFs.
 
 ## Handoff to analysis
 

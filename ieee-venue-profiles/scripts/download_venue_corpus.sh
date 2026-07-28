@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 AGENT_SKILLS_ROOT="$(cd "${SKILL_DIR}/../../.." && pwd)"
-FETCH_SKILL="${FETCH_SKILL:-${AGENT_SKILLS_ROOT}/paper-acquisition/paper-pdf-fetch}"
+FETCH_SKILL="${FETCH_SKILL:-${AGENT_SKILLS_ROOT}/paper-pdf-fetch}"
 PAPERS_MD="${SKILL_DIR}/calibration/PAPERS.md"
 
 mkdir -p "${SKILL_DIR}/calibration/literature"
