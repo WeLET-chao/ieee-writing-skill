@@ -1,0 +1,28 @@
+%----------------------------------------------------------------------
+\section{Proposed CAD Flow}
+\label{sec:methodology}
+%----------------------------------------------------------------------
+
+Describe stages, constraints, and simulation feedback.
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/fig_flow_overview.pdf}
+    \caption{Proposed CAD flow. Dashed arrows denote feedback before sizing.}
+    \label{fig:flow}
+\end{figure*}
+
+% Problem formulation: spec vector, pass/fail metrics.
+
+\begin{algorithm}[t]
+    \caption{Automated spec-to-schematic flow}
+    \label{alg:flow}
+    \begin{algorithmic}[1]
+        \REQUIRE Specification $\mathbf{s}$, template $\mathcal{T}$, simulator, optimizer
+        \ENSURE Architecture $x$, sizing $\mathbf{w}$, status
+        \STATE $x \leftarrow \textsc{Generate}(\mathcal{T}, \mathbf{s})$
+        \STATE Validate $x$ with behavioral simulation; regenerate until pass or budget exhausted
+        \STATE $\mathbf{w} \leftarrow \textsc{Optimize}(x, \mathbf{s})$
+        \RETURN $(x, \mathbf{w}, \textsc{SignOffCheck}(x, \mathbf{w}, \mathbf{s}))$
+    \end{algorithmic}
+\end{algorithm}

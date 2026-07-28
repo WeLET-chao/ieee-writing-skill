@@ -1,0 +1,204 @@
+{
+  "profile_id": "ieee-conference-short",
+  "schema_version": "2",
+  "venue_name": "IEEE conference short paper (~2 pages)",
+  "aliases": ["IFETC", "IEEE conference", "2-page", "conference"],
+
+  "latex_template": {
+    "documentclass": "conference",
+    "main_tex": "main.tex",
+    "section_inputs": [],
+    "monolithic": true,
+    "template_skill": "ieee-latex-layout",
+    "front_matter": {
+      "markboth": { "required": false },
+      "ieee_pubid": false,
+      "bstctlcite": true,
+      "author_thanks": "compact_affiliation_block"
+    },
+    "preamble": {
+      "packages_required": [
+        "times",
+        "amsmath",
+        "amsfonts",
+        "graphicx",
+        "cite",
+        "booktabs"
+      ],
+      "packages_optional": ["subfigure", "textcomp"],
+      "package_conflicts": []
+    },
+    "bibliography_in_main": {
+      "style": "IEEEtran",
+      "files": ["./IEEEabrv", "./reference"],
+      "compact_font_hack": true
+    },
+    "notes": [
+      "Single main.tex with inline sections.",
+      "Bibliography 7pt compact block permitted in template."
+    ]
+  },
+
+  "figures_and_layout": {
+    "page": {
+      "typical_min": 2,
+      "typical_max": 2,
+      "hard_limit": 2,
+      "expand_if_below": null,
+      "when_over_limit": "trim_prose_then_floats_then_bib",
+      "when_under_typical": null
+    },
+    "floats": {
+      "default_specifier": "[!t]",
+      "textfloatsep_tight": true,
+      "avoid_float_H": true
+    },
+    "figures": {
+      "architecture_flow": {
+        "environment": "figure",
+        "width": "\\columnwidth",
+        "medium": "matplotlib_ok"
+      },
+      "data_plots": {
+        "environment": "figure",
+        "width": "\\columnwidth",
+        "plot_style_skill": "ieee-manuscript-figures"
+      },
+      "minimum_count": 3
+    },
+    "tables": {
+      "setup": { "environment": "table", "required": false },
+      "results_summary": { "environment": "table", "required": false },
+      "sota_comparison": { "environment": "table", "required": false },
+      "minimum_count": 0
+    },
+    "algorithms": {
+      "minimum_count": 0,
+      "environment": null
+    },
+    "notes": [
+      "Prefer one architecture figure and one-to-two result plots.",
+      "Tables only if they replace long prose."
+    ]
+  },
+
+  "structure_and_narrative": {
+    "sections": [
+      {
+        "file": "main.tex",
+        "contains": [
+          "abstract",
+          "IEEEkeywords",
+          "introduction",
+          "methodology",
+          "results",
+          "conclusion",
+          "bibliography"
+        ]
+      }
+    ],
+    "abstract": {
+      "structure": "single_paragraph",
+      "sentence_count": [4, 6],
+      "must_include": ["problem", "method", "strongest_number", "scope"],
+      "metric_sync": true,
+      "keywords": "IEEEkeywords"
+    },
+    "introduction": {
+      "drop_cap": true,
+      "prior_work_taxonomy": false,
+      "contributions": "itemize_compact",
+      "related_work": "brief_in_intro_or_omit",
+      "closing": null
+    },
+    "methodology": {
+      "prefer_title": "Methodology",
+      "must_include": ["objective_wording", "what_is_measured"],
+      "brevity": "high"
+    },
+    "results": {
+      "setup_separate_section": false,
+      "subsection_style": "subsubsection_or_tight_paragraphs",
+      "each_block": "one paragraph per figure"
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "repeat_headline_metrics": true,
+      "limitations_subsection": false
+    },
+    "writing_rhythm": {
+      "sentence_per_line_comments": "rare",
+      "headline_metric_in": ["abstract", "results", "conclusion"],
+      "narrative_focus": "result_headline",
+      "scope_bounds_in_prose": true
+    },
+    "notes": [
+      "No standalone Related Work section unless space allows.",
+      "No paper-organization paragraph."
+    ]
+  },
+
+  "bibliography": {
+    "bib_files": ["reference.bib", "IEEEabrv.bib"],
+    "bst_control_entry": "IEEEexample:BSTcontrol",
+    "bibliography_command": "\\bibliography{./IEEEabrv,./reference}",
+    "citation_policy": {
+      "introduction_density": "medium",
+      "introduction_role": "anchor_gap_only",
+      "methodology_density": "low",
+      "results_density": "low",
+      "comparison_table_column_cites": false
+    },
+    "maintenance_policy": {
+      "trim_uncited_for_pages": true,
+      "abbreviate_journal_names_in_bib": true,
+      "never_shrink_bib_font_for_pages": false
+    },
+    "notes": [
+      "After prose trim, remove weak uncited entries if still over hard_limit."
+    ]
+  },
+
+  "project_layout": {
+    "root_variable": "PAPER_DIR",
+    "default_root_name": "paper",
+    "active_profile_file": "venue_profile.json",
+    "required_paths": [
+      "main.tex",
+      "figures/",
+      "reference.bib",
+      "IEEEabrv.bib",
+      ".latexmkrc",
+      "IEEEtran.cls"
+    ],
+    "optional_paths": ["scripts/", "literature/", "references/", "out/"],
+    "init": {
+      "script": "ieee-latex-layout/scripts/init_paper_assets.sh",
+      "bootstrap_flag": "--bootstrap-tex"
+    },
+    "build": {
+      "script": "ieee-latex-layout/scripts/build_paper.sh",
+      "main_tex": "main.tex"
+    },
+    "scoping_outputs": ["writing_plan.md", "figure_asset_plan.json"],
+    "notes": ["scripts/ optional if figures are static assets."]
+  },
+
+  "checklist": [
+    "latex: conference main.tex monolith",
+    "latex: compact bib allowed",
+    "figures: ≤3 figures, columnwidth",
+    "narrative: tight abstract paragraph",
+    "narrative: compact contributions only",
+    "bib: trim uncited if over 2 pages",
+    "layout: trim prose before shrinking figures"
+  ],
+
+  "execution_skills": {
+    "latex_template": ["ieee-latex-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "structure_and_narrative": ["ieee-manuscript-prose"],
+    "bibliography": ["ieee-bib-hygiene"],
+    "project_layout": ["ieee-manuscript-scoping", "ieee-latex-layout"]
+  }
+}

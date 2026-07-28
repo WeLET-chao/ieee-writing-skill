@@ -1,0 +1,68 @@
+{
+  "name": "default",
+  "description": "Matches analyze-research-paper analysis.md section names.",
+  "input": {
+    "glob": "papers/*/analysis.md",
+    "index_file": "docs/PAPERS.md"
+  },
+  "bibliographic": {
+    "title": { "source": "heading", "level": 1 },
+    "year": { "source": "table", "field": "Year" },
+    "venue": { "source": "table", "field": "Venue" },
+    "authors": { "source": "table", "field": "Authors" }
+  },
+  "sections": {
+    "tldr": {
+      "headings": ["TL;DR"],
+      "required": false
+    },
+    "problem_statement": {
+      "headings": ["Problem statement", "Research problem", "Problem"],
+      "required": true
+    },
+    "motivation": {
+      "headings": ["Motivation", "Background and motivation"],
+      "required": false
+    },
+    "prior_art": {
+      "headings": ["Prior art", "Related work", "Background"],
+      "required": true
+    },
+    "category": {
+      "headings": ["Category of work", "Research category", "Tags"],
+      "parse": "category_block",
+      "required": false
+    },
+    "method": {
+      "headings": ["Method / approach", "Methods", "Approach"],
+      "required": false
+    },
+    "results": {
+      "headings": ["Results summary", "Results", "Findings"],
+      "required": false
+    },
+    "contributions": {
+      "headings": ["Contributions", "Main contributions"],
+      "required": false
+    },
+    "innovations": {
+      "headings": ["Innovations", "Novelty"],
+      "required": false
+    },
+    "limitations": {
+      "headings": ["Limitations and future work", "Limitations", "Future work"],
+      "required": false
+    },
+    "research_opportunity": {
+      "headings": ["Research opportunity", "Open problems", "Future directions"],
+      "required": false
+    }
+  },
+  "aggregation": {
+    "group_by": "category.primary",
+    "min_theme_papers": 2,
+    "spot_check_count": 5,
+    "min_section_chars": 50,
+    "era_buckets": [2010, 2015, 2020, 2023]
+  }
+}

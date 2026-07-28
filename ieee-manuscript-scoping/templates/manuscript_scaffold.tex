@@ -1,0 +1,74 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{times}
+\usepackage{amssymb}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage[hang,center,tight]{subfigure}
+\usepackage{float}
+\usepackage{graphicx}
+\setlength{\textfloatsep}{6pt plus 1pt minus 2pt}
+\setlength{\dbltextfloatsep}{6pt plus 1pt minus 2pt}
+\setlength{\floatsep}{5pt plus 1pt minus 2pt}
+\setlength{\intextsep}{5pt plus 1pt minus 2pt}
+\setlength{\abovecaptionskip}{3pt}
+\setlength{\belowcaptionskip}{0pt}
+\usepackage[hyphens,obeyspaces]{url}
+\usepackage{cite}
+\usepackage[none]{hyphenat}
+\tolerance=9999
+\emergencystretch=10pt
+\hyphenpenalty=10000
+\exhyphenpenalty=100
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{textgreek}
+\usepackage[english]{babel}
+
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+\graphicspath{{./figures/}}
+
+\title{{{TITLE}}}
+
+\author{
+{{AUTHORS}}
+\thanks{Acknowledgment and funding placeholder.}
+}
+
+\IEEEoverridecommandlockouts
+\maketitle
+
+\begin{abstract}
+{{ABSTRACT_STUB}}
+\end{abstract}
+
+\begin{IEEEkeywords}
+{{KEYWORDS}}
+\end{IEEEkeywords}
+
+{{SECTIONS}}
+
+{{FIGURE_BLOCKS}}
+
+{{TABLE_BLOCKS}}
+
+\begingroup
+\makeatletter
+\let\oldthebibliography\thebibliography
+\let\endoldthebibliography\endthebibliography
+\renewenvironment{thebibliography}[1]{%
+    \oldthebibliography{#1}%
+    \fontsize{7}{7.15}\selectfont
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+}{\endoldthebibliography}
+\makeatother
+\bibliographystyle{IEEEtran}
+\bibliography{./IEEEabrv,./reference}
+\endgroup
+
+\end{document}

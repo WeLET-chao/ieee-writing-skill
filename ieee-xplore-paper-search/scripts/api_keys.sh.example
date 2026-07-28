@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Copy to api_keys.sh and set your IEEE Xplore Metadata API keys.
+# Register at https://developer.ieee.org/
+
+export IEEE_XPLORE_API_KEY='your-primary-key'
+export IEEE_XPLORE_API_KEY_BACKUP='your-backup-key'

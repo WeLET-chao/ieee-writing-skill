@@ -1,0 +1,56 @@
+% Example BibTeX entries — reference only (not installed into paper/).
+% Copy patterns into paper/reference.bib and replace with verified metadata.
+
+% --- Journal article: full official title (default / safest) ---
+@ARTICLE{Author2024_ExampleJournalFull,
+  author  = {Given {Surname} and Coauthor {Name}},
+  journal = "{IEEE Transactions on Electron Devices}",
+  title   = "{Official Publisher Title With Hyphenated Modifiers}",
+  year    = {2024},
+  volume  = {71},
+  number  = {3},
+  pages   = {812-823},
+  month   = {Mar.},
+  doi     = {10.1109/TED.2024.0000000}
+}
+
+% --- Journal article: optional abbreviated form (layout compression only) ---
+% Use one style consistently across the whole file, or use IEEEabrv.bib at render time.
+@ARTICLE{Author2024_ExampleJournalAbbr,
+  author  = {Given {Surname} and Coauthor {Name}},
+  journal = "{IEEE TED}",
+  title   = "{Official Publisher Title With Hyphenated Modifiers}",
+  year    = {2024},
+  volume  = {71},
+  number  = {3},
+  pages   = {812-823},
+  month   = {Mar.},
+  doi     = {10.1109/TED.2024.0000000}
+}
+
+% --- IEEE conference (acronym booktitle, no year in booktitle) ---
+@INPROCEEDINGS{Author2024_ExampleConf,
+  author    = {Given {Surname} and Coauthor {Name}},
+  booktitle = "{IEEE IFETC}",
+  title     = "{Conference Paper Title}",
+  year      = {2024},
+  pages     = {1-4},
+  month     = {Jun.},
+  doi       = {10.1109/IFETC.2024.0000000}
+}
+
+% --- Non-IEEE conference ---
+@INPROCEEDINGS{Author2023_ExampleDATE,
+  author    = {Given {Surname}},
+  booktitle = "{DATE}",
+  title     = "{Paper Title}",
+  year      = {2023},
+  pages     = {100-105},
+  doi       = {10.23919/DATE.2023.00000}
+}
+
+% Avoid:
+% - booktitle = "Proceedings of the ..."
+% - pages = {1-14}  (placeholder)
+% - mixing full and abbreviated journal styles in the same file without intent
+% - keywords / ISSN exporter noise unless required

@@ -1,0 +1,259 @@
+{
+  "profile_id": "ieee-tcas-i-journal",
+  "schema_version": "2",
+  "venue_name": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+  "aliases": ["TCAS-I", "IEEE TCAS-I"],
+
+  "latex_template": {
+    "documentclass": "journal,twoside",
+    "main_tex": "0_main_ieee_trans.tex",
+    "section_inputs": [
+      "1_abstract_v1.tex",
+      "2_introduction_v1.tex",
+      "3_methodology_v1.tex",
+      "4_results_v1.tex",
+      "5_conclusion_v1.tex"
+    ],
+    "template_skill": "ieee-tcad-journal-manuscript",
+    "front_matter": {
+      "markboth": {
+        "required": true,
+        "journal_line": "IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS—I: REGULAR PAPERS",
+        "short_title": "Author et al.: Short Title"
+      },
+      "ieee_pubid": true,
+      "ieee_overridecommandlockouts": true,
+      "bstctlcite": true,
+      "author_thanks": "full_submission_blocks",
+      "ieee_biography": "at_acceptance"
+    },
+    "preamble": {
+      "packages_required": [
+        "times",
+        "SIunits",
+        "amsmath",
+        "amsfonts",
+        "graphicx",
+        "cite",
+        "booktabs",
+        "threeparttable",
+        "multirow",
+        "textcomp",
+        "textgreek"
+      ],
+      "packages_optional": ["algorithm", "algorithmic"],
+      "package_conflicts": ["Do not load algpseudocode together with algorithmic"]
+    },
+    "bibliography_in_main": {
+      "style": "IEEEtran",
+      "files": ["./IEEEabrv", "./reference"],
+      "compact_font_hack": false
+    },
+    "notes": [
+      "Reuse journal split-file skeleton; change markboth journal string to TCAS-I."
+    ]
+  },
+
+  "figures_and_layout": {
+    "page": {
+      "typical_min": 10,
+      "typical_max": 14,
+      "hard_limit": null,
+      "expand_if_below": 8,
+      "when_over_limit": "expand_content_first",
+      "when_under_typical": "add_circuit_analysis_and_measurement_figures"
+    },
+    "floats": {
+      "default_specifier": "[!t]",
+      "textfloatsep_tight": false,
+      "avoid_float_H": true
+    },
+    "figures": {
+      "architecture_flow": {
+        "environment": "figure*",
+        "width": "0.95\\textwidth",
+        "medium": "vector_preferred",
+        "label_convention": "schematic_or_topology"
+      },
+      "data_plots": {
+        "environment": "figure",
+        "width": "9cm",
+        "types_preferred": [
+          "transient",
+          "PSRR",
+          "line_load_regulation",
+          "PVT_corners",
+          "die_photo"
+        ]
+      },
+      "minimum_count": 8
+    },
+    "tables": {
+      "setup": { "environment": "table", "required": true },
+      "results_summary": { "environment": "table*", "required": true },
+      "sota_comparison": {
+        "environment": "table*",
+        "required": true,
+        "compare_against": "prior_circuit_designs"
+      },
+      "minimum_count": 2
+    },
+    "algorithms": {
+      "minimum_count": 0,
+      "environment": null
+    },
+    "notes": [
+      "Circuit evidence outweighs flow diagrams.",
+      "Include testbench and measurement setup figure when silicon or lab data exists."
+    ]
+  },
+
+  "structure_and_narrative": {
+    "sections": [
+      { "file": "1_abstract_v1.tex", "contains": ["abstract", "IEEEkeywords"] },
+      {
+        "file": "2_introduction_v1.tex",
+        "contains": [
+          "circuit_motivation",
+          "prior_circuit_taxonomy",
+          "contributions",
+          "related_work",
+          "paper_organization"
+        ]
+      },
+      {
+        "file": "3_methodology_v1.tex",
+        "section": "Circuit Implementation or Proposed Architecture",
+        "contains": [
+          "schematic",
+          "equations",
+          "design_insight",
+          "optional_automation_subsection"
+        ]
+      },
+      {
+        "file": "4_results_v1.tex",
+        "contains": [
+          "measurement_setup",
+          "corner_matrix",
+          "spec_table",
+          "waveforms_and_comparison"
+        ]
+      },
+      {
+        "file": "5_conclusion_v1.tex",
+        "contains": ["circuit_contribution_summary", "limitations"]
+      }
+    ],
+    "abstract": {
+      "structure": "multi_sentence",
+      "sentence_count": [6, 10],
+      "must_include": [
+        "circuit_problem",
+        "topology_or_technique",
+        "key_circuit_metrics",
+        "measurement_or_simulation_scope"
+      ],
+      "metric_sync": true
+    },
+    "introduction": {
+      "drop_cap": true,
+      "prior_work_taxonomy": true,
+      "taxonomy_focus": "circuit_topologies_and_benchmarks",
+      "contributions": "itemize",
+      "related_work": "subsection_or_section",
+      "closing": "paper_organization_paragraph"
+    },
+    "methodology": {
+      "prefer_title": "Circuit Implementation",
+      "must_include": ["equations", "topology_insight", "design_tradeoffs"],
+      "automation_secondary_unless_CAD_paper": true
+    },
+    "results": {
+      "setup_separate_section": true,
+      "subsection_style": "bold_runin_heads",
+      "example_heads": [
+        "DC and line regulation:",
+        "PSRR:",
+        "Transient response:",
+        "PVT robustness:"
+      ],
+      "each_block": "conditions → figure/table → spec numbers"
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "repeat_headline_metrics": true,
+      "limitations_subsection": true
+    },
+    "writing_rhythm": {
+      "sentence_per_line_comments": "optional",
+      "headline_metric_in": ["abstract", "tables", "conclusion"],
+      "narrative_focus": "circuit_performance",
+      "scope_bounds_in_prose": true
+    },
+    "notes": [
+      "Do not over-emphasize automation if the paper is circuit-first.",
+      "Silicon/post-layout claims require matching evidence."
+    ]
+  },
+
+  "bibliography": {
+    "bib_files": ["reference.bib", "IEEEabrv.bib"],
+    "bst_control_entry": "IEEEexample:BSTcontrol",
+    "bibliography_command": "\\bibliography{./IEEEabrv,./reference}",
+    "citation_policy": {
+      "introduction_density": "high",
+      "introduction_role": "classical_circuit_and_benchmark_papers",
+      "methodology_density": "medium",
+      "results_density": "medium",
+      "comparison_table_column_cites": true
+    },
+    "maintenance_policy": {
+      "trim_uncited_for_pages": false,
+      "abbreviate_journal_names_in_bib": false,
+      "never_shrink_bib_font_for_pages": true
+    }
+  },
+
+  "project_layout": {
+    "root_variable": "PAPER_DIR",
+    "default_root_name": "paper",
+    "active_profile_file": "venue_profile.json",
+    "required_paths": [
+      "0_main_ieee_trans.tex",
+      "figures/",
+      "scripts/",
+      "reference.bib",
+      "IEEEabrv.bib",
+      ".latexmkrc",
+      "IEEEtran.cls"
+    ],
+    "optional_paths": ["photos/", "literature/", "references/", "writing_plan.md", "out/"],
+    "init": {
+      "script": "ieee-tcad-journal-manuscript/scripts/init_tcad_journal.sh",
+      "bootstrap_flag": "--bootstrap-tex"
+    },
+    "build": {
+      "script": "ieee-tcad-journal-manuscript/scripts/build_tcad_journal.sh",
+      "main_tex": "0_main_ieee_trans.tex"
+    },
+    "scoping_outputs": ["writing_plan.md", "figure_asset_plan.json"]
+  },
+
+  "checklist": [
+    "latex: journal TCAS-I markboth string",
+    "figures: schematic + waveforms + spec comparison table",
+    "narrative: circuit metrics lead abstract",
+    "narrative: equations and topology insight in methodology",
+    "results: PVT/load/transient evidence matrix",
+    "bib: classical circuit citations in intro"
+  ],
+
+  "execution_skills": {
+    "latex_template": ["ieee-tcad-journal-manuscript", "ieee-latex-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "structure_and_narrative": ["ieee-manuscript-prose"],
+    "bibliography": ["ieee-bib-hygiene"],
+    "project_layout": ["ieee-manuscript-scoping"]
+  }
+}

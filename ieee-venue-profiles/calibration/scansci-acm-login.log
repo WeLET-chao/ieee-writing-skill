@@ -1,0 +1,10 @@
+[INFO]    [cookies] Opening browser: https://dl.acm.org/
+[INFO] browser_engine: import_cookies error: It looks like you are using Playwright Sync API inside the asyncio loop.
+Please use the Async API instead.
+
+  请在浏览器中登录你的机构账号（如学校图书馆）
+  打开页面: https://dl.acm.org/
+  登录完成后关闭浏览器窗口即可
+
+  捕获 8 个 cookies，其中 0 个属于出版社。已保存，后续下载自动使用。
+exit_code=0

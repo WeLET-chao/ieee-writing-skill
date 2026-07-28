@@ -1,0 +1,146 @@
+{
+  "profile_id": "_template",
+  "schema_version": "2",
+  "venue_name": "Full venue name",
+  "aliases": ["SHORT"],
+
+  "latex_template": {
+    "documentclass": "journal,twoside",
+    "main_tex": "0_main_ieee_trans.tex",
+    "section_inputs": [
+      "1_abstract_v1.tex",
+      "2_introduction_v1.tex",
+      "3_methodology_v1.tex",
+      "4_results_v1.tex",
+      "5_conclusion_v1.tex"
+    ],
+    "template_skill": "ieee-tcad-journal-manuscript",
+    "front_matter": {
+      "markboth": { "required": true, "short_title": "Short title for header" },
+      "ieee_pubid": true,
+      "bstctlcite": true,
+      "author_thanks": "full_submission_blocks"
+    },
+    "preamble": {
+      "packages_required": [
+        "SIunits",
+        "algorithm",
+        "algorithmic",
+        "booktabs",
+        "threeparttable",
+        "multirow",
+        "textcomp",
+        "textgreek"
+      ],
+      "package_conflicts": ["Do not load algpseudocode together with algorithmic"]
+    },
+    "bibliography_in_main": {
+      "style": "IEEEtran",
+      "files": ["./IEEEabrv", "./reference"],
+      "compact_font_hack": false
+    }
+  },
+
+  "figures_and_layout": {
+    "page": {
+      "typical_min": 10,
+      "typical_max": 12,
+      "hard_limit": null,
+      "expand_if_below": 6,
+      "when_over_limit": "expand_content_first"
+    },
+    "floats": { "default_specifier": "[!t]", "textfloatsep_tight": false },
+    "figures": {
+      "architecture_flow": {
+        "environment": "figure*",
+        "width": "0.95\\textwidth",
+        "medium": "vector_preferred"
+      },
+      "data_plots": { "environment": "figure", "width": "9cm" },
+      "minimum_count": 6
+    },
+    "tables": {
+      "setup": { "environment": "table", "required": true },
+      "results_summary": { "environment": "table*", "required": true },
+      "sota_comparison": { "environment": "table*", "required": false },
+      "minimum_count": 2
+    },
+    "algorithms": { "minimum_count": 1, "environment": "algorithm" }
+  },
+
+  "structure_and_narrative": {
+    "sections": [
+      { "file": "1_abstract_v1.tex", "contains": ["abstract", "IEEEkeywords"] },
+      { "file": "2_introduction_v1.tex", "contains": ["introduction", "related_work", "paper_organization"] },
+      { "file": "3_methodology_v1.tex", "contains": ["methodology", "algorithms"] },
+      { "file": "4_results_v1.tex", "contains": ["experimental_setup", "results"] },
+      { "file": "5_conclusion_v1.tex", "contains": ["conclusion", "limitations"] }
+    ],
+    "abstract": {
+      "structure": "multi_sentence",
+      "sentence_count": [8, 12],
+      "must_include": ["problem", "gap", "method", "quantitative_results", "scope_bound"],
+      "metric_sync": true
+    },
+    "introduction": {
+      "drop_cap": true,
+      "prior_work_taxonomy": true,
+      "contributions": "itemize",
+      "related_work": "subsection",
+      "closing": "paper_organization_paragraph"
+    },
+    "results": { "subsection_style": "bold_runin_heads" },
+    "writing_rhythm": {
+      "sentence_per_line_comments": "optional",
+      "headline_metric_in": ["abstract", "introduction", "tables", "conclusion"],
+      "narrative_focus": "cad_methodology"
+    }
+  },
+
+  "bibliography": {
+    "bib_files": ["reference.bib", "IEEEabrv.bib"],
+    "bst_control_entry": "IEEEexample:BSTcontrol",
+    "citation_policy": {
+      "introduction_density": "high",
+      "results_density": "low",
+      "comparison_table_column_cites": true
+    },
+    "maintenance_policy": {
+      "trim_uncited_for_pages": false,
+      "abbreviate_journal_names_in_bib": false
+    }
+  },
+
+  "project_layout": {
+    "root_variable": "PAPER_DIR",
+    "default_root_name": "paper",
+    "active_profile_file": "venue_profile.json",
+    "required_paths": [
+      "figures/",
+      "scripts/",
+      "reference.bib",
+      "IEEEabrv.bib",
+      ".latexmkrc",
+      "IEEEtran.cls"
+    ],
+    "optional_paths": ["photos/", "literature/", "references/", "writing_plan.md", "out/"],
+    "init": {
+      "script": "ieee-tcad-journal-manuscript/scripts/init_tcad_journal.sh",
+      "bootstrap_flag": "--bootstrap-tex"
+    },
+    "build": {
+      "script": "ieee-tcad-journal-manuscript/scripts/build_tcad_journal.sh",
+      "main_tex": "0_main_ieee_trans.tex"
+    }
+  },
+
+  "checklist": [],
+
+  "execution_skills": {
+    "latex_template": ["ieee-tcad-journal-manuscript", "ieee-latex-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "structure_and_narrative": ["ieee-tcad-journal-manuscript", "ieee-manuscript-prose"],
+    "bibliography": ["ieee-bib-hygiene"],
+    "project_layout": ["ieee-tcad-journal-manuscript", "ieee-manuscript-scoping"]
+  }
+}

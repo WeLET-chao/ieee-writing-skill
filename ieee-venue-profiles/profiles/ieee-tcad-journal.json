@@ -1,0 +1,303 @@
+{
+  "profile_id": "ieee-tcad-journal",
+  "schema_version": "2",
+  "venue_name": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+  "aliases": ["TCAD", "IEEE TCAD", "IEEE Trans. CAD"],
+
+  "latex_template": {
+    "documentclass": "journal,twoside",
+    "main_tex": "0_main_ieee_trans.tex",
+    "section_inputs": [
+      "1_abstract_v1.tex",
+      "2_introduction_v1.tex",
+      "3_methodology_v1.tex",
+      "4_results_v1.tex",
+      "5_conclusion_v1.tex"
+    ],
+    "template_skill": "ieee-tcad-journal-manuscript",
+    "front_matter": {
+      "markboth": {
+        "required": true,
+        "journal_line": "IEEE TRANSACTIONS ON COMPUTER-AIDED DESIGN OF INTEGRATED CIRCUITS AND SYSTEMS",
+        "short_title": "Author et al.: Short Title"
+      },
+      "ieee_pubid": true,
+      "ieee_overridecommandlockouts": true,
+      "bstctlcite": true,
+      "author_thanks": "full_submission_blocks",
+      "ieee_biography": "at_acceptance"
+    },
+    "preamble": {
+      "packages_required": [
+        "times",
+        "SIunits",
+        "amsmath",
+        "amsfonts",
+        "bm",
+        "subfigure",
+        "float",
+        "graphicx",
+        "cite",
+        "hyphenat",
+        "booktabs",
+        "threeparttable",
+        "multirow",
+        "textcomp",
+        "textgreek",
+        "algorithm",
+        "algorithmic"
+      ],
+      "package_conflicts": [
+        "Do not load algpseudocode together with algorithmic (TeX Live 2026)"
+      ]
+    },
+    "bibliography_in_main": {
+      "style": "IEEEtran",
+      "files": ["./IEEEabrv", "./reference"],
+      "compact_font_hack": false
+    },
+    "notes": [
+      "Use split main + section inputs, not monolithic conference main.tex.",
+      "After first intro figure, IEEEpubidadjcol may be needed for pub-id column."
+    ]
+  },
+
+  "figures_and_layout": {
+    "page": {
+      "typical_min": 10,
+      "typical_max": 12,
+      "hard_limit": null,
+      "expand_if_below": 6,
+      "when_over_limit": "expand_content_first",
+      "when_under_typical": "add_methodology_tables_discussion_not_bib_shrink"
+    },
+    "floats": {
+      "default_specifier": "[!t]",
+      "textfloatsep_tight": false,
+      "avoid_float_H": true
+    },
+    "figures": {
+      "architecture_flow": {
+        "environment": "figure*",
+        "width": "0.95\\textwidth",
+        "medium": "vector_preferred",
+        "label_convention": "fig:flow"
+      },
+      "data_plots": {
+        "environment": "figure",
+        "width": "9cm",
+        "plot_style_skill": "ieee-manuscript-figures"
+      },
+      "minimum_count": 6
+    },
+    "tables": {
+      "setup": {
+        "environment": "table",
+        "title_pattern": "Experimental suite / benchmark setup",
+        "required": true
+      },
+      "results_summary": {
+        "environment": "table*",
+        "title_pattern": "Summary of main results",
+        "required": true
+      },
+      "sota_comparison": {
+        "environment": "table*",
+        "title_pattern": "Comparison with state-of-the-art",
+        "required": true
+      },
+      "minimum_count": 2
+    },
+    "algorithms": {
+      "minimum_count": 1,
+      "environment": "algorithm",
+      "content": "end_to_end_CAD_or_synthesis_loop"
+    },
+    "notes": [
+      "Every major claim needs a figure and/or table anchor.",
+      "Use table* for wide SOTA comparison with cite keys in column headers."
+    ]
+  },
+
+  "structure_and_narrative": {
+    "sections": [
+      {
+        "file": "1_abstract_v1.tex",
+        "contains": ["abstract", "IEEEkeywords"]
+      },
+      {
+        "file": "2_introduction_v1.tex",
+        "section": "Introduction",
+        "contains": [
+          "application_motivation",
+          "automation_gap",
+          "prior_work_taxonomy",
+          "this_paper_approach",
+          "contributions_itemize",
+          "related_work_subsection",
+          "paper_organization_paragraph"
+        ]
+      },
+      {
+        "file": "3_methodology_v1.tex",
+        "section": "Proposed CAD Flow",
+        "contains": [
+          "three_stage_flow",
+          "problem_formulation",
+          "figure_star_flow",
+          "algorithm",
+          "implementation_notes"
+        ]
+      },
+      {
+        "file": "4_results_v1.tex",
+        "sections": ["Experimental Setup", "Experimental Results"],
+        "contains": [
+          "setup_table",
+          "bold_runin_result_blocks",
+          "result_figures",
+          "results_summary_table"
+        ]
+      },
+      {
+        "file": "5_conclusion_v1.tex",
+        "section": "Conclusion and Discussion",
+        "contains": ["summary_with_headline_numbers", "limitations_subsection"]
+      }
+    ],
+    "abstract": {
+      "structure": "multi_sentence",
+      "sentence_count": [8, 12],
+      "must_include": [
+        "CAD_problem",
+        "prior_gap",
+        "proposed_flow",
+        "quantitative_headline_results",
+        "explicit_scope_bound"
+      ],
+      "metric_sync": true,
+      "keywords": "IEEEkeywords block required"
+    },
+    "introduction": {
+      "drop_cap": true,
+      "prior_work_taxonomy": true,
+      "taxonomy_classes": 2,
+      "contributions": "itemize_numbered",
+      "related_work": "subsection_in_same_file",
+      "closing": "The rest of this paper is organized as follows."
+    },
+    "methodology": {
+      "prefer_title": "Proposed CAD Flow",
+      "avoid_leading_with": "circuit_implementation_only",
+      "must_include": ["formal_or_semi_formal_problem", "algorithm", "reproducibility_pointer"]
+    },
+    "results": {
+      "setup_separate_section": true,
+      "subsection_style": "bold_runin_heads",
+      "example_heads": [
+        "Behavioral ablation:",
+        "gm/ID sizing comparisons:",
+        "End-to-end multi-model comparison:",
+        "Case studies:"
+      ],
+      "each_block": "setup → figure/table ref → numeric takeaway"
+    },
+    "conclusion": {
+      "title": "Conclusion and Discussion",
+      "repeat_headline_metrics": true,
+      "limitations_subsection": true
+    },
+    "writing_rhythm": {
+      "sentence_per_line_comments": "optional_percent_between_sentences",
+      "headline_metric_in": ["abstract", "introduction", "tables", "conclusion"],
+      "narrative_focus": "cad_methodology",
+      "scope_bounds_in_prose": true
+    },
+    "notes": [
+      "CAD story: automation problem → method → evidence, not circuit tutorial first.",
+      "Do not cite repo paths in submission prose."
+    ]
+  },
+
+  "bibliography": {
+    "bib_files": ["reference.bib", "IEEEabrv.bib"],
+    "bst_control_entry": "IEEEexample:BSTcontrol",
+    "bibliography_command": "\\bibliography{./IEEEabrv,./reference}",
+    "citation_policy": {
+      "introduction_density": "high",
+      "introduction_role": "classify_prior_CAD_EDA_RL_LLM_work",
+      "methodology_density": "low_medium",
+      "results_density": "low",
+      "comparison_table_column_cites": true
+    },
+    "maintenance_policy": {
+      "trim_uncited_for_pages": false,
+      "abbreviate_journal_names_in_bib": false,
+      "never_shrink_bib_font_for_pages": true
+    },
+    "notes": [
+      "Verify cited keys with ieee-bib-hygiene; profile governs density policy only."
+    ]
+  },
+
+  "project_layout": {
+    "root_variable": "PAPER_DIR",
+    "default_root_name": "paper",
+    "active_profile_file": "venue_profile.json",
+    "required_paths": [
+      "0_main_ieee_trans.tex",
+      "1_abstract_v1.tex",
+      "2_introduction_v1.tex",
+      "3_methodology_v1.tex",
+      "4_results_v1.tex",
+      "5_conclusion_v1.tex",
+      "figures/",
+      "scripts/",
+      "reference.bib",
+      "IEEEabrv.bib",
+      ".latexmkrc",
+      "IEEEtran.cls"
+    ],
+    "optional_paths": [
+      "photos/",
+      "literature/",
+      "references/",
+      "writing_plan.md",
+      "figure_asset_plan.json",
+      "out/"
+    ],
+    "init": {
+      "script": "ieee-tcad-journal-manuscript/scripts/init_tcad_journal.sh",
+      "bootstrap_flag": "--bootstrap-tex"
+    },
+    "build": {
+      "script": "ieee-tcad-journal-manuscript/scripts/build_tcad_journal.sh",
+      "main_tex": "0_main_ieee_trans.tex"
+    },
+    "scoping_outputs": ["writing_plan.md", "figure_asset_plan.json"],
+    "notes": [
+      "Host-specific artifact dirs (manifest, synced experiments) live outside this profile."
+    ]
+  },
+
+  "checklist": [
+    "latex: journal,twoside + split 0_main and 1..5 files",
+    "latex: markboth, IEEEpubid, bstctlcite",
+    "figures: figure* CAD flow + ≥6 figures total",
+    "figures: setup table + results table* + SOTA table*",
+    "figures: ≥1 algorithm block",
+    "narrative: 8–12 sentence quantitative abstract",
+    "narrative: intro taxonomy + paper organization",
+    "narrative: bold run-in result heads",
+    "bib: high intro density; no bib font compression",
+    "layout: expand prose if below 6 pages before float tricks"
+  ],
+
+  "execution_skills": {
+    "latex_template": ["ieee-tcad-journal-manuscript", "ieee-latex-layout"],
+    "figures_and_layout": ["ieee-manuscript-figures", "ieee-latex-layout"],
+    "structure_and_narrative": ["ieee-tcad-journal-manuscript", "ieee-manuscript-prose"],
+    "bibliography": ["ieee-bib-hygiene"],
+    "project_layout": ["ieee-tcad-journal-manuscript", "ieee-manuscript-scoping"]
+  }
+}

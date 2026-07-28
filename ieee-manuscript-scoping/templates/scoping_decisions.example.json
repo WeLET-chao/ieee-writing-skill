@@ -1,0 +1,76 @@
+{
+  "venue": "IFETC 2026",
+  "profile_id": "ieee-conference-short",
+  "page_limit": 2,
+  "main_tex": "main.tex",
+  "title": "Paper Title from User Checkpoint",
+  "keywords": ["keyword one", "keyword two", "keyword three"],
+  "evidence_boundary": "State what metrics and plots are in scope (e.g. ΔV_th trajectories only; no I_D curves in body).",
+  "simulation_defaults": {
+    "config": "configs/example.yaml",
+    "script": "paper/scripts/generate_figures.py"
+  },
+  "literature_slugs": ["slug-from-literature-dir"],
+  "contributions": [
+    "First numbered contribution.",
+    "Second numbered contribution.",
+    "Third numbered contribution."
+  ],
+  "sections": [
+    {
+      "name": "Introduction",
+      "label": "sec:introduction",
+      "bullets": ["Application motivation.", "Gap vs quasi-static strain models.", "List contributions."]
+    },
+    {
+      "name": "Methodology",
+      "label": "sec:methodology",
+      "bullets": ["Wrapper architecture.", "Equations or signal chain.", "Implementation note (SPICE / Spectre)."]
+    },
+    {
+      "name": "Results",
+      "label": "sec:results",
+      "bullets": ["Setup parameters.", "Figure walkthrough.", "Scope sentence."]
+    },
+    {
+      "name": "Conclusion",
+      "label": "sec:conclusion",
+      "bullets": ["Summary.", "Bounded forward look."]
+    }
+  ],
+  "figures": [
+    {
+      "id": "Fig. 1",
+      "file": "figures/fig1_architecture.pdf",
+      "claim": "System or wrapper architecture",
+      "source_type": "concept_diagram",
+      "repo_path": "paper/scripts/plot_architecture.py",
+      "status": "needs_design",
+      "column_span": "single",
+      "notes": ""
+    },
+    {
+      "id": "Fig. 2",
+      "file": "figures/fig2_results.pdf",
+      "claim": "Primary simulation evidence",
+      "source_type": "simulation",
+      "repo_path": "configs/example.yaml",
+      "status": "needs_run",
+      "column_span": "double",
+      "notes": ""
+    }
+  ],
+  "tables": [
+    {
+      "id": "Table I",
+      "file": "",
+      "claim": "Simulation parameters",
+      "source_type": "table_from_config",
+      "repo_path": "configs/example.yaml",
+      "status": "needs_design",
+      "notes": "Render in LaTeX table environment"
+    }
+  ],
+  "abstract_stub": "One paragraph: problem, method, setup, strongest numbers.",
+  "authors_placeholder": "Author~One$^{1}$, Author~Two$^{1}$ \\\\ $^{1}$Affiliation"
+}

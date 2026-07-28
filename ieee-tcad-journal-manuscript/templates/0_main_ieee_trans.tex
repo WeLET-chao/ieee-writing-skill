@@ -1,0 +1,73 @@
+\documentclass[journal,twoside]{IEEEtran}
+
+\usepackage{times}
+\usepackage[mediumspace,mediumqspace,Gray,squaren]{SIunits}
+\usepackage{amssymb}
+\usepackage[cmex10]{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+
+\usepackage[hang,center,tight]{subfigure}
+\usepackage{float}
+\usepackage{graphicx}
+
+\usepackage[hyphens,obeyspaces]{url}
+\usepackage{cite}
+\usepackage[none]{hyphenat}
+\tolerance=9999
+\emergencystretch=10pt
+\hyphenpenalty=10000
+\exhyphenpenalty=100
+
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{textgreek}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
+\graphicspath{{./figures/}{./photos/}{./}}
+
+\title{Paper Title}
+
+\author{
+Author~One$^{1}$,
+Author~Two$^{1}$, and
+Author~Three$^{1,\dagger}$
+\thanks{Manuscript received XXXX XX, XXXX; accepted XXXX XX, XXXX.
+Date of publication XXXX XX, XXXX; date of current version XXXX XX, XXXX.
+$\dagger$The corresponding author is Author Three.}
+\thanks{$^{1}$Affiliation, City, Country (e-mail: author@institution.edu).}}
+
+\markboth{IEEE TRANSACTIONS ON COMPUTER-AIDED DESIGN OF INTEGRATED CIRCUITS AND SYSTEMS,~Vol.~99, No.~99, 2026}%
+{Author \MakeLowercase{\textit{et al.}}: Short Paper Title}
+
+\IEEEoverridecommandlockouts
+\IEEEpubid{%
+\begin{tabular}[t]{@{}c@{}}
+1063-8210 \copyright~2026 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.\\
+See https://www.ieee.org/publications/rights/index.html for more information.
+\end{tabular}}
+
+\maketitle
+
+\input{1_abstract_v1.tex}
+\input{2_introduction_v1.tex}
+\input{3_methodology_v1.tex}
+\input{4_results_v1.tex}
+\input{5_conclusion_v1.tex}
+
+\bibliographystyle{IEEEtran}
+\bibliography{./IEEEabrv,./reference}
+
+% \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{photos/author_one.jpg}}]{Author One}
+% Biography text.
+% \end{IEEEbiography}
+
+\end{document}

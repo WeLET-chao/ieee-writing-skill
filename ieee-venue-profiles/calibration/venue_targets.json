@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "description": "IEEE Xplore search targets for venue-profile calibration. Papers feed calibration/PAPERS.md → literature/<slug>/ → analyze → profile updates.",
+  "year_window": {
+    "default_years_back": 5,
+    "end_year": 2026,
+    "comment": "Set years_back to 3 in scripts via CALIBRATION_YEARS_BACK=3"
+  },
+  "targets": [
+    {
+      "profile_id": "ieee-tcad-journal",
+      "label": "IEEE TCAD (journal)",
+      "publication_title": "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems",
+      "query": "(\"design automation\" OR \"computer-aided design\" OR EDA OR \"analog design\")",
+      "max_records": 20,
+      "category": "venue-calibration,tcad-journal",
+      "calibration_focus": [
+        "latex_template",
+        "figures_and_layout",
+        "structure_and_narrative",
+        "bibliography"
+      ],
+      "notes": "Prefer methodology-heavy CAD papers; skip pure survey unless high citation."
+    },
+    {
+      "profile_id": "ieee-tcas-i-journal",
+      "label": "IEEE TCAS-I (journal)",
+      "publication_title": "IEEE Transactions on Circuits and Systems I: Regular Papers",
+      "query": "(\"analog\" OR \"mixed-signal\" OR LDO OR amplifier OR \"data converter\")",
+      "max_records": 20,
+      "category": "venue-calibration,tcas-i-journal",
+      "calibration_focus": [
+        "latex_template",
+        "figures_and_layout",
+        "structure_and_narrative",
+        "bibliography"
+      ],
+      "notes": "Circuit-first papers; compare section titles and measurement figures vs TCAD."
+    },
+    {
+      "profile_id": "ieee-conference-short",
+      "label": "IEEE CAD conference papers (short)",
+      "publication_title": null,
+      "query": "(\"computer-aided design\" OR \"design automation\" OR ICCAD OR ISPD OR DATE) AND (conference OR proceedings)",
+      "max_records": 25,
+      "category": "venue-calibration,conference-short",
+      "calibration_focus": [
+        "latex_template",
+        "figures_and_layout",
+        "structure_and_narrative"
+      ],
+      "post_filter": {
+        "venue_contains_any": [
+          "ICCAD",
+          "ISPD",
+          "Computer-Aided Design",
+          "Design Automation",
+          "ISCAS",
+          "International Symposium on Circuits and Systems"
+        ],
+        "max_pages_hint": 6
+      },
+      "notes": "Post-filter keeps IEEE-relevant CAD conference proceedings; manually drop non-IEEE venues after search."
+    }
+  ],
+  "analysis_extract": {
+    "per_paper_fields": [
+      "estimated_page_count",
+      "section_titles_in_order",
+      "abstract_sentence_count",
+      "figure_count",
+      "table_count",
+      "algorithm_count",
+      "has_markboth_header",
+      "two_column_journal",
+      "related_work_placement",
+      "results_subsection_style",
+      "bibliography_approx_count",
+      "headline_metrics_in_abstract"
+    ],
+    "aggregate_per_profile": [
+      "median_page_count",
+      "common_section_map",
+      "typical_figure_count_range",
+      "typical_table_count_range",
+      "abstract_style_consensus",
+      "recommended_profile_patches"
+    ]
+  }
+}
