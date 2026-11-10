@@ -55,7 +55,7 @@ External skills: `paper-pdf-fetch`, `analyze-research-paper` (see PATH_MODE.md).
 | `ieee-manuscript-bib` | Bibliography hygiene |
 | `ieee-manuscript-revision` | Full revision orchestrator |
 | `ieee-manuscript-final-review` | Pre-submission gate |
-| `ieee-manuscript-rebuttal` | Reviewer response letter |
+| `ieee-manuscript-rebuttal` | Reviewer letter, change log, sentence-level blue tracked PDF |
 
 ### Venue (`ieee-venue-*`)
 

@@ -51,7 +51,9 @@ Run stages **in order**. After each stage, note residual issues before continuin
 
 If the user requests **review-only**, stop after stage 5 without further edits.
 
-**After reviews:** use `ieee-manuscript-rebuttal` for the response letter (orthogonal to the polish pass above).
+**After reviews:** use `ieee-manuscript-rebuttal` for the response letter,
+change log, and sentence-level blue tracked PDF (orthogonal to the polish pass
+above).
 
 If a stage finds P0 blockers, fix them before downstream stages when feasible
 (e.g., wrong figure undermines prose in stage 1).

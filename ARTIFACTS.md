@@ -46,5 +46,6 @@ SKILL="$(bash "$ROOT" ieee-literature-search)"   # example
 | `ieee-manuscript-prose` | `scripts/scan_prose_patterns.sh` | Prose pattern grep |
 | `ieee-manuscript-final-review` | `scripts/build_and_review.sh` | Build + review bundle |
 | | `scripts/render_pdf_pages.sh` | Rasterize PDF pages |
+| `ieee-manuscript-rebuttal` | `scripts/mark_revision_sentences.py` | Sentence-level blue `\rev{...}` tracked TeX |
 
 Orchestrators (`ieee-literature-pipeline`, `ieee-manuscript-revision`) invoke the scripts above via sub-skills — see each `SKILL.md`.

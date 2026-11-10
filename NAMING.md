@@ -46,7 +46,7 @@ Resolve paths: `scripts/skill_root.sh` — see [PATH_MODE.md](PATH_MODE.md).
 | `ieee-manuscript-bib` | `reference.bib` hygiene |
 | `ieee-manuscript-revision` | Orchestrator: full revision pass |
 | `ieee-manuscript-final-review` | Pre-submission compile + checklist |
-| `ieee-manuscript-rebuttal` | Reviewer response letter / change log |
+| `ieee-manuscript-rebuttal` | Reviewer letter / change log / blue tracked PDF |
 
 ### Venue (`ieee-venue-*`)
 
