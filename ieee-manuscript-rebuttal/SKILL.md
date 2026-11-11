@@ -155,6 +155,22 @@ Uploadable Responses must read as letter prose, not lab notes:
 | “We expanded Section … / clarified …” | “We retained …” / “Fig. N remains …” (process inventory) |
 | Standalone rewrite when R2 repeats R1 | “As also noted in Response 1.5 …” |
 
+### Manuscript body ≠ rebuttal meta-talk
+
+Revised **manuscript** prose must also stay reader-facing. Do **not** paste
+rebuttal scaffolding into `main.tex`:
+
+| Prefer in the paper | Avoid in the paper |
+|---------------------|--------------------|
+| “To evaluate X against Y, we …” | “To answer the request for …” / “as the reviewer asked …” |
+| Objective comparison + measured outcome | Defensive inventories (“this is not a ranking…”, “context experiment only”) as the thesis |
+| Mechanism sentences that close multi-part asks (FO4→period gap; resistor-bias vs $I_{\mathrm{off}}$) | Leaving those *why* answers only in the letter |
+| Stable cross-PDK wording (“evaluated at post-PlaceRAM placement”) | Lab shorthand in Abstract/Conclusion (`sky130NAND remains PlaceRAM pre-PnR`) |
+
+Keep scoped disclaimers short and technical (e.g. flat dies are non-clean
+outlines). Put process caveats in the letter if needed, not as manuscript
+meta-talk.
+
 ### Cover letter vs Authors’ Responses preamble
 
 - **Cover letter (to EIC):** a short numbered list of what this revision

@@ -100,6 +100,17 @@ When another model rewrites the cover letter / Responses:
    Markdown dumps that abandon the institutional DOCX.
 4. Target length: roughly half to two-thirds of a maximal LLM expansion.
 
+When the polish draft targets the **manuscript**:
+
+1. Strip reviewer meta-talk (`To answer the request…`) from body sections.
+2. Prefer adding missing mechanism sentences that the letter already promises
+   (timing gap, static-power origin, interface corner cases) over defensive
+   disclaimers.
+3. Do not invent interface behaviors (e.g. write-through / bypass on `Do`)
+   unless the testbench or Fig. evidence shows them.
+4. Re-check Abstract/Conclusion for unfinished-lab shorthand; keep year fields
+   that match real preprints/accepted papers (do not “fix” a correct 2026).
+
 ## Sync checklist (quotes + screenshots)
 
 Before regenerating the uploadable letter:
