@@ -71,6 +71,7 @@ words of the blue sentence so humans can search the PDF.
 | Varied thank-you openings, then the technical reply | One identical stock thank-you on every item |
 | Standalone rewritten answers when Reviewer 2 repeats Reviewer 1 | “This comment overlaps Question X. See Response X.” / “also noted in Response …” |
 | Claims restated from the tracked manuscript (same wording strength) | Escalating “dominated by …” into fake precision (`>99.9%`) or new mechanism numbers |
+| Positive scope: completed checks / why that evidence level fits | Closing with “we do not claim … / no measured …” stacks |
 | “improved / optimized / redrawn for readability / updated” for figures | Leading with “regenerated” as the change claim |
 | Quote revised manuscript sentences + embed key Fig./table evidence | Bare Response with no manuscript pointer |
 | Preserve institutional letterhead, seal, Times, page breaks | Pandoc-from-Markdown that drops the template |

@@ -154,6 +154,12 @@ Uploadable Responses must read as letter prose, not lab notes:
 | “The contribution of this work is the G3SC overlay: …” | `Contribution:` / `Die ladder:` / `Same-library flat check:` labels |
 | “We expanded Section … / clarified …” | “We retained …” / “Fig. N remains …” (process inventory) |
 | Standalone rewrite when R2 repeats R1 | “As also noted in Response 1.5 …” |
+| Positive scope: what was verified and why it suffices | Stacked “we do not claim X / no measured Y” closers |
+
+When limiting scope, lead with the completed evidence and the study’s role
+(e.g. “PDK-backed post-route STA across liberty corners is the appropriate
+evidence level for this compiler study”). Prefer that framing over ending on
+what was *not* measured, unless the reviewer explicitly demanded a decline.
 
 ### Manuscript body ≠ rebuttal meta-talk
 
