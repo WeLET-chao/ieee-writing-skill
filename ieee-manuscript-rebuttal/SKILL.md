@@ -1,6 +1,6 @@
 ---
 name: ieee-manuscript-rebuttal
-description: "Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter (institutional DOCX/PDF with blue answers, varied thank-yous, standalone replies, revised quotes/figures), change log mapped to TeX diffs, sentence-level blue marked manuscript (tracked PDF), and resubmission checklist. Core principle: know what to say and what not to say. Keep letter quotes and table/figure screenshots synced to the current tracked PDF (real Table N wording; screenshots include captions). Avoid em dashes as connectors. Use when drafting a response letter, revision plan, or blue track-changes PDF before resubmitting."
+description: "Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter (institutional DOCX/PDF with blue answers, varied thank-yous, standalone replies, revised quotes/figures), change log mapped to TeX diffs, sentence-level blue marked manuscript (tracked PDF), and resubmission checklist. Core principle: know what to say and what not to say. Answer every sub-ask of multi-part comments in formal prose (not note labels); lock claims to the tracked manuscript; cover-letter revision bullets OK, Authors’ Responses/AE openings stay short. Triage LLM polish drafts selectively. Keep letter quotes and table/figure screenshots synced to the current tracked PDF (real Table N wording; screenshots include captions). Avoid em dashes as connectors. Use when drafting a response letter, revision plan, or blue track-changes PDF before resubmitting."
 ---
 
 # IEEE Manuscript Rebuttal
@@ -126,10 +126,62 @@ Before drafting each Response, ask: *Did the reviewer ask this?* If no, omit it.
 Team-internal drafts may track Known / Still needed / deferred items.
 **Uploadable letter and cover letter must not leak that inventory.**
 
+### Multi-part comments: answer in the letter, prove in the manuscript
+
+Reviewers often pack several sub-asks into one numbered item (physics *why*,
+metric tables, verification scope, corner cases). Treat each sub-ask as
+mandatory in the **Response body**, not only as a pointer to a section:
+
+- Name the sub-ask briefly, then give a **direct technical answer** in formal
+  academic prose (complete sentences).
+- Follow with the manuscript change + quote / screenshot evidence as usual.
+- Prefer about **50-70%** of a verbose LLM rewrite: enough to feel answered,
+  short enough to stay evidence-locked.
+
+Do **not** invent mechanism numbers, percentages, tool versions, or bend /
+field claims that are absent from the tracked manuscript. If the paper says
+“dominated by cell leakage,” do not escalate to “>99.9%” in the letter unless
+that figure is computed and reported. Qualitative *why* is fine when it
+restates mechanisms already in the paper (e.g. resistive-load pull-ups, local
+decode timing, channel quantization).
+
+### Formal prose (not internal notes)
+
+Uploadable Responses must read as letter prose, not lab notes:
+
+| Prefer | Avoid |
+|--------|--------|
+| “The contribution of this work is the G3SC overlay: …” | `Contribution:` / `Die ladder:` / `Same-library flat check:` labels |
+| “We expanded Section … / clarified …” | “We retained …” / “Fig. N remains …” (process inventory) |
+| Standalone rewrite when R2 repeats R1 | “As also noted in Response 1.5 …” |
+
+### Cover letter vs Authors’ Responses preamble
+
+- **Cover letter (to EIC):** a short numbered list of what this revision
+  changed is appropriate (contribution clarity, new table/section, redrawn
+  figures). Keep it factual and aligned with the tracked PDF.
+- **Authors’ Responses opening:** one thank-you sentence only. Do **not**
+  paste the cover-letter laundry list or a “significantly improved depth”
+  sermon there.
+- **AE block:** short thank-you; address only comments that exist. No process
+  meta (“please check attachments”).
+
+### Using LLM polish drafts
+
+External “optimized rebuttal” drafts are useful for tone and for surfacing
+unanswered sub-asks. Do **not** paste them wholesale into the DOCX:
+
+1. Diff against the current letter and the tracked manuscript.
+2. Adopt formalization + missing sub-answers that the paper already supports.
+3. Reject new physics, bend/reliability claims, false precision, em dashes,
+   cross-ref stubs, and long Authors’ Responses / AE preambles.
+4. Keep the institutional scaffold, blue Responses, and quote/screenshot sync
+   workflow; only rewrite Response/cover text.
+
 ### Per-item mechanics
 
 - One block per reviewer comment; quote or paraphrase the comment first
-- Thank first (vary openings), then answer
+- Thank first (vary openings), then answer every sub-ask in that comment
 - State the change made, or why no change (with evidence / scope limit)
 - Point to a concrete location (section / figure / table) and, when useful,
   that the sentence appears in blue in the tracked PDF
@@ -182,10 +234,13 @@ unless no template exists.
    create blank pages.
 8. **Cover letter tense.** Say the revision **is prepared** / **addresses**
    concerns, not that evidence is “still required” or the team is “still
-   preparing,” once the response is final.
+   preparing,” once the response is final. A short factual bullet list of
+   revision highlights is fine on the cover letter only.
 9. **Apply the say / don’t-say filter (above) to every paragraph.** Common
    leaks to delete before upload: “Fig. N remains…”, “archived for later”,
-   Authors’ Responses figure laundry lists, AE process meta, cross-ref stubs.
+   Authors’ Responses figure laundry lists, AE process meta, cross-ref stubs,
+   note-like `Contribution:` labels, em dashes, and precision/claims not in
+   the tracked manuscript.
 
 ### Quotes and float screenshots (sync to tracked PDF)
 

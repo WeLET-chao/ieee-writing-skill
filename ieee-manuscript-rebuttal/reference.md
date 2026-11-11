@@ -66,11 +66,16 @@ words of the blue sentence so humans can search the PDF.
 | Do | Avoid |
 |----|--------|
 | Complete blue answers under each Question | “Known from the submitted manuscript / Still needed” in the final letter |
+| Direct answers to **every sub-ask** in a multi-part comment | Pointing only to a section while leaving the *why* unanswered in the letter |
+| Formal academic sentences | Note-like labels (`Contribution:`, `Die ladder:`) or “We retained …” |
 | Varied thank-you openings, then the technical reply | One identical stock thank-you on every item |
-| Standalone rewritten answers when Reviewer 2 repeats Reviewer 1 | “This comment overlaps Question X. See Response X.” |
+| Standalone rewritten answers when Reviewer 2 repeats Reviewer 1 | “This comment overlaps Question X. See Response X.” / “also noted in Response …” |
+| Claims restated from the tracked manuscript (same wording strength) | Escalating “dominated by …” into fake precision (`>99.9%`) or new mechanism numbers |
 | “improved / optimized / redrawn for readability / updated” for figures | Leading with “regenerated” as the change claim |
 | Quote revised manuscript sentences + embed key Fig./table evidence | Bare Response with no manuscript pointer |
 | Preserve institutional letterhead, seal, Times, page breaks | Pandoc-from-Markdown that drops the template |
+| Cover letter: short factual revision bullet list OK | Authors’ Responses opening laundry list / depth sermon |
+| Short AE thank-you | AE process meta or naming ceremony |
 | Short Authors’ Responses thank-you only | Prefacing with “Fig. N remains … / X unchanged / deferred for later” |
 | Mention only edits that were actually made | Advertising unmodified items or optional future archives |
 | Colon / comma / parentheses / hyphen `-` for ranges | Em dash `—` as a clause connector |
@@ -78,8 +83,22 @@ words of the blue sentence so humans can search the PDF.
 | Table/Fig screenshots that include `TABLE N` / caption and IEEE-style body | Ad-hoc grids or caption-less crops that disagree with the tracked PDF |
 | Short under-image pointer once the PNG already has the formal caption | Duplicating the full caption in two different styles |
 | Response-only digests labeled as Section … summaries | Calling a non-float digest “Table N” |
+| Selective adoption of LLM polish (tone + missing sub-answers) | Wholesale paste of an external “optimized” letter |
 
 Scaffold inventory drafts are fine **internally**; convert them before portal upload.
+
+## Triaging an external polish draft
+
+When another model rewrites the cover letter / Responses:
+
+1. Keep scaffold, blue color, page breaks, and evidence sync machinery.
+2. Accept: formalization of note-like prose; explicit answers to named
+   sub-questions; clearer contribution / verification-scope wording **already
+   supported by the tracked PDF**.
+3. Reject or rewrite: new physics or reliability claims; precision upgrades;
+   em dashes; cross-ref stubs; long Authors’ Responses / AE preambles;
+   Markdown dumps that abandon the institutional DOCX.
+4. Target length: roughly half to two-thirds of a maximal LLM expansion.
 
 ## Sync checklist (quotes + screenshots)
 
