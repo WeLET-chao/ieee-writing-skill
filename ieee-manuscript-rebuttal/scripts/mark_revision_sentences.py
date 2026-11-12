@@ -457,6 +457,12 @@ def _assets_changed(
     git_repo: Path | None,
     git_old: str | None,
 ) -> bool:
+    """Return True only when both baseline and revised digests exist and differ.
+
+    If the baseline asset cannot be read (no ``old_root`` / ``git-old`` blob),
+    skip that file rather than treating a missing baseline as a change. Otherwise
+    ``--asset-root`` alone spuriously blues every figure caption.
+    """
     if not figs:
         return False
     for rel in figs:
@@ -466,7 +472,7 @@ def _assets_changed(
             old_dig = _file_digest(old_root / rel)
         if old_dig is None and git_repo is not None and git_old:
             old_dig = _git_blob_digest(git_repo, git_old, rel)
-        if new_dig is None and old_dig is None:
+        if new_dig is None or old_dig is None:
             continue
         if new_dig != old_dig:
             return True

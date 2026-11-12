@@ -82,7 +82,9 @@ AGENT_SKILLS="${AGENT_SKILLS:-$(git rev-parse --show-toplevel)}"
 REB="$(bash "$AGENT_SKILLS/ieee-writing/scripts/skill_root.sh" ieee-manuscript-rebuttal)"
 
 # old = submitted baseline; new = revised working tree
-# --git-old makes updated figure/table assets force-blue their captions
+# Always pass --git-old (or --old-asset-root) with --asset-root so only
+# actually changed figure binaries blue their captions. --asset-root alone
+# no longer spuriously marks every float (missing baseline is skipped).
 python3 "$REB/scripts/mark_revision_sentences.py" \
   --old path/to/submitted/main.tex \
   --new path/to/revised/main.tex \

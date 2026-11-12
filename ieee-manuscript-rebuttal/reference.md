@@ -33,7 +33,7 @@ shipping one file that reviewers must toggle.
 |--------|--------|
 | `%` comment lines | Leave unchanged |
 | `\begin{tabular}...\end{tabular}` and similar alignments | Do not sentence-split inside table rows |
-| Figure/table `\caption{...}` | Wrap the **whole** caption in `\rev{...}` when caption text, float body (e.g. table cells), or any `\includegraphics` asset changed vs baseline (`--git-old` / `--old-asset-root`) |
+| Figure/table `\caption{...}` | Wrap the **whole** caption in `\rev{...}` when caption text, float body (e.g. table cells), or any `\includegraphics` asset changed vs baseline (`--git-old` / `--old-asset-root`). Do **not** pass `--asset-root` without a baseline: missing old digests are skipped (they must not blue every figure). Unchanged floats keep black captions. |
 | Display math `\[...\]` / `equation` | Leave structure; mark surrounding prose sentences |
 | `\includegraphics` paths themselves | Leave unchanged; if the image file changed, mark the float caption |
 | Title / author block | Mark only if the revision intentionally changed them |
