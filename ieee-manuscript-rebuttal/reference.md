@@ -83,10 +83,38 @@ words of the blue sentence so humans can search the PDF.
 | Quotes with printed labels (“Table IX reports …”) | Placeholders (“Table reports …”, “the STA table”) |
 | Table/Fig screenshots that include `TABLE N` / caption and IEEE-style body | Ad-hoc grids or caption-less crops that disagree with the tracked PDF |
 | Short under-image pointer once the PNG already has the formal caption | Duplicating the full caption in two different styles |
-| Response-only digests labeled as Section … summaries | Calling a non-float digest “Table N” |
+| Response-only digests labeled as Section … summaries | Calling a non-float digest “Table N”; saying `(not a separate manuscript float)` |
+| “Redrawn for legibility” + show the figure | Figure-styling inventories (violet/orange, color split, junction markup) |
+| Outcome-led flat/comparison wording | `context experiment` / `not used to rank density or fmax` stacks |
 | Selective adoption of LLM polish (tone + missing sub-answers) | Wholesale paste of an external “optimized” letter |
 
 Scaffold inventory drafts are fine **internally**; convert them before portal upload.
+
+## Pre-upload string scan (letter)
+
+Run a quick search on the filled DOCX/PDF text before portal upload. Fail the
+letter if any of these remain (except inside quoted reviewer comments):
+
+```text
+manuscript float
+supporting Response
+context experiment
+shared-compiler context only
+not used to rank
+We retained
+See Response
+Incomplete
+archived for
+do not claim
+no measured
+color split
+violet latch
+Known from the submitted
+Still needed
+```
+
+Allowed: `(blue text)` when pointing to a tracked revision PDF; short
+“Revised Fig./Table N from the manuscript.” image pointers.
 
 ## Triaging an external polish draft
 

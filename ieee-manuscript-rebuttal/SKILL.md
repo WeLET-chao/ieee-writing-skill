@@ -1,6 +1,6 @@
 ---
 name: ieee-manuscript-rebuttal
-description: "Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter (institutional DOCX/PDF with blue answers, varied thank-yous, standalone replies, revised quotes/figures), change log mapped to TeX diffs, sentence-level blue marked manuscript (tracked PDF), and resubmission checklist. Core principle: know what to say and what not to say. Answer every sub-ask of multi-part comments in formal prose (not note labels); lock claims to the tracked manuscript; cover-letter revision bullets OK, Authors’ Responses/AE openings stay short. Triage LLM polish drafts selectively. Keep letter quotes and table/figure screenshots synced to the current tracked PDF (real Table N wording; screenshots include captions). Avoid em dashes as connectors. Use when drafting a response letter, revision plan, or blue track-changes PDF before resubmitting."
+description: "Structures IEEE manuscript reviewer responses: point-by-point rebuttal letter (institutional DOCX/PDF with blue answers, varied thank-yous, standalone replies, revised quotes/figures), change log mapped to TeX diffs, sentence-level blue marked manuscript (tracked PDF), and resubmission checklist. Core principle: know what to say and what not to say. Answer every sub-ask in formal prose; positive scope framing; audit out internal meta notes (float-status asides, figure-styling inventories, ranking disclaimers). Lock claims to the tracked manuscript; cover-letter revision bullets OK, Authors’ Responses/AE openings stay short. Triage LLM polish drafts selectively. Sync quotes/screenshots to the current tracked PDF. Avoid em dashes as connectors. Use when drafting a response letter, revision plan, or blue track-changes PDF before resubmitting."
 ---
 
 # IEEE Manuscript Rebuttal
@@ -155,11 +155,32 @@ Uploadable Responses must read as letter prose, not lab notes:
 | “We expanded Section … / clarified …” | “We retained …” / “Fig. N remains …” (process inventory) |
 | Standalone rewrite when R2 repeats R1 | “As also noted in Response 1.5 …” |
 | Positive scope: what was verified and why it suffices | Stacked “we do not claim X / no measured Y” closers |
+| “Redrawn Figs. 3 and 5 for legibility” | Figure-styling inventories (label size, violet/orange, “color split”, junction markup) |
+| “Summary of the … numbers reported in Section …” | Parenthetical float-status asides (`not a separate manuscript float`) |
+| Outcome-led comparison (“PlaceRAM yields DRC-clean macros”) | Ranking-disclaimer stacks (`not used to rank density or fmax`) |
+| “same-library flat RTL comparison / section” | Lab labels (`context experiment`, `shared-compiler context only`) |
 
 When limiting scope, lead with the completed evidence and the study’s role
 (e.g. “PDK-backed post-route STA across liberty corners is the appropriate
 evidence level for this compiler study”). Prefer that framing over ending on
 what was *not* measured, unless the reviewer explicitly demanded a decline.
+
+### Pre-upload letter hygiene audit
+
+Before regenerating the final DOCX/PDF, search the letter text for **team-internal
+scaffolding** that must never ship. Typical leaks:
+
+| Leak pattern | Why it fails | Fix |
+|--------------|--------------|-----|
+| `(not a separate manuscript float)` / `response-only digest` / `supporting Response N` | Process note for authors, not reviewers | Point to the section/table that owns the numbers; keep the image, drop the aside |
+| Figure edit inventories (fonts, colors, straightened wires) | Reviewer asked for readability, not a changelog of drawing ops | One short “redrawn for legibility” + show the figure |
+| `context experiment` / `context only` / `not an alternate proposed flow` | Defensive lab framing | State the comparison purpose and the positive outcome |
+| `not used to rank …` / `not a density or fmax ranking` | Sounds like arguing with the ask | End on what the comparison establishes |
+| `we do not claim …` / `no measured …` closers | Negative scope dump | Positive evidence-level sentence |
+| Stale quotes vs tracked PDF (e.g. “cell leakage” after body moved to “static cell power”) | Letter/manuscript drift | Re-copy quotes after every TeX edit |
+
+`(blue text)` markers that point to the tracked PDF are fine when the venue
+uses blue revision markup. Keep those; remove only author-process asides.
 
 ### Manuscript body ≠ rebuttal meta-talk
 
@@ -305,6 +326,7 @@ truth every time the letter is regenerated.
 4. Re-render/crop Fig./Table screenshots WITH captions; insert after each item
 5. Export PDF via LibreOffice/Word; verify: no Known/Still needed,
    no “overlaps … See Response”, no “Fig./X remains unchanged” volunteering,
+   no float-status / figure-styling / ranking-disclaimer internal asides,
    short Authors’ Responses thank-you only, no blank pages, blue responses,
    no stale “Table reports …” placeholders, screenshots match tracked floats
 ```
@@ -333,6 +355,7 @@ if evidence images/quotes lag the current tracked PDF.
 - [ ] Point-by-point response letter (PDF or DOCX as venue requires)
 - [ ] Letter quotes use printed Table/Fig/section labels from tracked PDF
 - [ ] Table/figure screenshots include captions and match manuscript formatting
+- [ ] Pre-upload hygiene audit passed (no float-status / styling / ranking asides)
 - [ ] Cover letter / Author Comments cites original manuscript ID
 - [ ] change_log.md and reviewer_matrix.md retained for the team
 - [ ] Final review / compile clean on the submission TeX
